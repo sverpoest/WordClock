@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>TouchTest</name>
+            <name>WordClockNoBT</name>
             <creation-uuid>7208a6a0-e67e-4113-ac85-f14a7ef9cee6</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

@@ -3,18 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/accelerometer.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/bluetooth.h</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/mcc_generated_files/interrupt_manager.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/main.h</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/LEDArray.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/bluetooth.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/lib.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/LEDArray.h</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/mcc_generated_files/i2c.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/clock.c</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/lib.h</file>
-            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/TouchTest.X/main.c</file>
+            <file>file:/C:/Users/sebastiaan.verpoest/MPLABXProjects/WordClockNoBT/main.c</file>
         </group>
     </open-files>
 </project-private>
