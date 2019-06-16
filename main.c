@@ -111,22 +111,22 @@ void main(void)
     LED_Row(0x00, 0b1111111111111110);
     Delay(100);
     
-    /*Bluetooth_Initialize();
+    Bluetooth_Initialize();
     LED_Row(0x00, 0b1111111111111101);
-    Delay(100);*/
+    Delay(100);
     
     Clock_Initialize(true);
     LED_Row(0x00, 0b1111111111111011);
     Delay(100);
     
-    /*Acc_Initialize();
+    Acc_Initialize();
     LED_Row(0x00, 0b1111111111110111);
-    Delay(100);*/
+    Delay(100);
     
-    /*TMR1_SetInterruptHandler(Tick);
+    TMR1_SetInterruptHandler(Tick);
     
     //IOCCF2_SetInterruptHandler(SetTime);
-    IOCCF3_SetInterruptHandler(SetTurn);*/
+    IOCCF3_SetInterruptHandler(SetTurn);
     
     uint8_t i = 0;
     while (1)
