@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=TouchTest.X
+PROJECTNAME=WordClock
 
 # Active Configuration
 DEFAULTCONF=default

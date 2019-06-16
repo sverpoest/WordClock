@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+nbproject/Makefile-variables.mk
+nbproject/Makefile-variables.mk
