@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug\TouchTest.X.debug.hex">
+  <executable name="dist/default/debug\WordClockNoBT.debug.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>
-      <used>4064</used>
-      <free>4128</free>
+      <used>2727</used>
+      <free>5465</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1024</length>
-      <used>355</used>
-      <free>669</free>
+      <used>202</used>
+      <free>822</free>
     </memory>
   </executable>
 </project>

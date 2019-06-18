@@ -1,17 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"41 clock.c
-[c E12087 0 1 2 3 4 5 6 .. ]
-[n E12087 . I2C_MESSAGE_COMPLETE I2C_MESSAGE_FAIL I2C_MESSAGE_PENDING I2C_STUCK_START I2C_MESSAGE_ADDRESS_NO_ACK I2C_DATA_NO_ACK I2C_LOST_STATE  ]
-"17 lib.h
-[v _I2CRead `(v ~T0 @X0 0 ef4`*uc`uc`uc`ui ]
-"16
+"42 clock.c
+[c E12012 0 1 2 3 4 5 6 .. ]
+[n E12012 . I2C_MESSAGE_COMPLETE I2C_MESSAGE_FAIL I2C_MESSAGE_PENDING I2C_STUCK_START I2C_MESSAGE_ADDRESS_NO_ACK I2C_DATA_NO_ACK I2C_LOST_STATE  ]
+"12 clock.h
+[v _Clock_Read `(v ~T0 @X0 0 ef ]
+"16 lib.h
 [v _I2CWrite `(v ~T0 @X0 0 ef3`*uc`uc`ui ]
 "15
 [v _Delay `(v ~T0 @X0 0 ef1`uc ]
-"11 clock.h
+"10 clock.h
 [v _Clock_Display `(v ~T0 @X0 0 ef1`uc ]
-"12
-[v _Clock_Write `(v ~T0 @X0 0 ef ]
+"17 lib.h
+[v _I2CRead `(v ~T0 @X0 0 ef4`*uc`uc`uc`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10772,16 +10772,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;pin_manager.h: 287: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 299: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 312: void IOCCF2_ISR(void);
-[; ;pin_manager.h: 335: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 359: extern void (*IOCCF2_InterruptHandler)(void);
-[; ;pin_manager.h: 383: void IOCCF2_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 396: void IOCCF3_ISR(void);
-[; ;pin_manager.h: 419: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 443: extern void (*IOCCF3_InterruptHandler)(void);
-[; ;pin_manager.h: 467: void IOCCF3_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 263: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 275: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 288: void IOCCF2_ISR(void);
+[; ;pin_manager.h: 311: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 335: extern void (*IOCCF2_InterruptHandler)(void);
+[; ;pin_manager.h: 359: void IOCCF2_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 372: void IOCCF3_ISR(void);
+[; ;pin_manager.h: 395: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 419: extern void (*IOCCF3_InterruptHandler)(void);
+[; ;pin_manager.h: 443: void IOCCF3_DefaultInterruptHandler(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10813,43 +10813,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 181: void EUSART_Write_Direct(uint8_t txData);
-[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
 [; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;i2c.h: 83: typedef enum
 [; ;i2c.h: 84: {
@@ -10909,12 +10872,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void *InterruptHandler);
 [; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 70: void SYSTEM_Initialize(void);
+[; ;mcc.h: 83: void OSCILLATOR_Initialize(void);
 [; ;clock.h: 9: void Clock_Initialize(bool start);
-[; ;clock.h: 10: void Clock_SetTime(uint8_t hourIn, uint8_t minsIn);
-[; ;clock.h: 11: void Clock_Display(bool fetchTime);
-[; ;clock.h: 12: void Clock_Write();
+[; ;clock.h: 10: void Clock_Display(bool fetchTime);
+[; ;clock.h: 11: void Clock_Write();
+[; ;clock.h: 12: void Clock_Read();
 [; ;clock.h: 13: void Clock_Tap(bool hours);
 "8 lib.h
 [v _DISPLAYBANK_row `c ~T0 @X0 -> 11 `i e ]
@@ -11058,806 +11021,724 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;clock.c: 32: 0x001B, 0x000F, 0x000F, 0x07E0
 [; ;clock.c: 33: };
 "35
+[v _sec `uc ~T0 @X0 1 e ]
+[i _sec
+-> -> 0 `i `uc
+]
+[; ;clock.c: 35: uint8_t sec = 0;
+"36
 [v _min `uc ~T0 @X0 1 e ]
 [i _min
 -> -> 0 `i `uc
 ]
-[; ;clock.c: 35: uint8_t min = 0;
-"36
+[; ;clock.c: 36: uint8_t min = 0;
+"37
 [v _hour `uc ~T0 @X0 1 e ]
 [i _hour
 -> -> 0 `i `uc
 ]
-[; ;clock.c: 36: uint8_t hour = 0;
-"38
+[; ;clock.c: 37: uint8_t hour = 0;
+"39
 [v _Clock_Initialize `(v ~T0 @X0 1 ef1`uc ]
-"39
-{
-[; ;clock.c: 38: void Clock_Initialize(bool start)
-[; ;clock.c: 39: {
-[e :U _Clock_Initialize ]
-"38
-[v _start `uc ~T0 @X0 1 r1 ]
-"39
-[f ]
 "40
-[v _writeBuffer `uc ~T0 @X0 -> 5 `i a ]
+{
+[; ;clock.c: 39: void Clock_Initialize(bool start)
+[; ;clock.c: 40: {
+[e :U _Clock_Initialize ]
+"39
+[v _start `uc ~T0 @X0 1 r1 ]
+"40
+[f ]
 "41
-[v _status `E12087 ~T0 @X0 1 a ]
-[; ;clock.c: 40: uint8_t writeBuffer[5];
-[; ;clock.c: 41: I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
-[e = _status . `E12087 2 ]
-[; ;clock.c: 43: if(start)
-"43
-[e $ ! != -> _start `i -> -> -> 0 `i `uc `i 1214  ]
-[; ;clock.c: 44: {
+[v _writeBuffer `uc ~T0 @X0 -> 5 `i a ]
+"42
+[v _status `E12012 ~T0 @X0 1 a ]
+[; ;clock.c: 41: uint8_t writeBuffer[5];
+[; ;clock.c: 42: I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
+[e = _status . `E12012 2 ]
+[; ;clock.c: 44: if(start)
 "44
-{
+[e $ ! != -> _start `i -> -> -> 0 `i `uc `i 1213  ]
+[; ;clock.c: 45: Clock_Read();
 "45
-[v _dataBuffer `uc ~T0 @X0 -> 2 `i a ]
-[; ;clock.c: 45: uint8_t dataBuffer[2];
-[; ;clock.c: 47: I2CRead(dataBuffer, 0x01, 2, 0b1101111);
+[e ( _Clock_Read ..  ]
+[e :U 1213 ]
+[; ;clock.c: 47: writeBuffer[0] = 0x00;
 "47
-[e ( _I2CRead (4 , , , &U _dataBuffer -> -> 1 `i `uc -> -> 2 `i `uc -> -> 111 `i `ui ]
-[; ;clock.c: 48: min = dataBuffer[0];
-"48
-[e = _min *U + &U _dataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux ]
-[; ;clock.c: 49: hour = (dataBuffer[1] & 0x1F);
-"49
-[e = _hour -> & -> *U + &U _dataBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux `i -> 31 `i `uc ]
-"50
-}
-[e :U 1214 ]
-[; ;clock.c: 50: }
-[; ;clock.c: 52: writeBuffer[0] = 0x00;
-"52
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
-[; ;clock.c: 53: if(start)
-"53
-[e $ ! != -> _start `i -> -> -> 0 `i `uc `i 1215  ]
-[; ;clock.c: 54: writeBuffer[1] = 0x80;
-"54
+[; ;clock.c: 48: if(start)
+"48
+[e $ ! != -> _start `i -> -> -> 0 `i `uc `i 1214  ]
+[; ;clock.c: 49: writeBuffer[1] = 0x80;
+"49
 [e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 128 `i `uc ]
-[e $U 1216  ]
-"55
-[e :U 1215 ]
-[; ;clock.c: 55: else
-[; ;clock.c: 56: writeBuffer[1] = 0x00;
-"56
+[e $U 1215  ]
+"50
+[e :U 1214 ]
+[; ;clock.c: 50: else
+[; ;clock.c: 51: writeBuffer[1] = 0x00;
+"51
 [e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
-[e :U 1216 ]
-[; ;clock.c: 57: writeBuffer[2] = min;
-"57
+[e :U 1215 ]
+[; ;clock.c: 52: writeBuffer[2] = min;
+"52
 [e = *U + &U _writeBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux _min ]
-[; ;clock.c: 58: writeBuffer[3] = (0x40 | hour);
-"58
+[; ;clock.c: 53: writeBuffer[3] = (0x40 | hour);
+"53
 [e = *U + &U _writeBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> | -> 64 `i -> _hour `i `uc ]
-[; ;clock.c: 59: writeBuffer[4] = 0x08;
-"59
+[; ;clock.c: 54: writeBuffer[4] = 0x08;
+"54
 [e = *U + &U _writeBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 8 `i `uc ]
-[; ;clock.c: 60: I2CWrite(writeBuffer, 5, 0b1101111);
-"60
+[; ;clock.c: 55: I2CWrite(writeBuffer, 5, 0b1101111);
+"55
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 5 `i `uc -> -> 111 `i `ui ]
-[; ;clock.c: 62: Delay(0x10);
-"62
+[; ;clock.c: 57: Delay(0x10);
+"57
 [e ( _Delay (1 -> -> 16 `i `uc ]
-[; ;clock.c: 64: writeBuffer[0] = 0x07;
-"64
+[; ;clock.c: 59: writeBuffer[0] = 0x07;
+"59
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 7 `i `uc ]
-[; ;clock.c: 66: writeBuffer[1] = 0x03;
-"66
+[; ;clock.c: 61: writeBuffer[1] = 0x03;
+"61
 [e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 3 `i `uc ]
-[; ;clock.c: 67: I2CWrite(writeBuffer, 2, 0b1101111);
-"67
+[; ;clock.c: 62: I2CWrite(writeBuffer, 2, 0b1101111);
+"62
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 2 `i `uc -> -> 111 `i `ui ]
-[; ;clock.c: 69: }
-"69
-[e :UE 1213 ]
+[; ;clock.c: 64: }
+"64
+[e :UE 1212 ]
 }
-"71
+"66
 [v _IncHour `(uc ~T0 @X0 1 ef1`uc ]
-"72
+"67
 {
-[; ;clock.c: 71: uint8_t IncHour(uint8_t in)
-[; ;clock.c: 72: {
+[; ;clock.c: 66: uint8_t IncHour(uint8_t in)
+[; ;clock.c: 67: {
 [e :U _IncHour ]
-"71
+"66
 [v _in `uc ~T0 @X0 1 r1 ]
-"72
+"67
 [f ]
-[; ;clock.c: 73: if(in == 0x09)
-"73
-[e $ ! == -> _in `i -> 9 `i 1218  ]
-[; ;clock.c: 74: return 0x10;
-"74
+[; ;clock.c: 68: if(in == 0x09)
+"68
+[e $ ! == -> _in `i -> 9 `i 1217  ]
+[; ;clock.c: 69: return 0x10;
+"69
 [e ) -> -> 16 `i `uc ]
-[e $UE 1217  ]
-[e $U 1219  ]
-"75
-[e :U 1218 ]
-[; ;clock.c: 75: else if(in == 0x12)
-[e $ ! == -> _in `i -> 18 `i 1220  ]
-[; ;clock.c: 76: return 0x01;
-"76
+[e $UE 1216  ]
+[e $U 1218  ]
+"70
+[e :U 1217 ]
+[; ;clock.c: 70: else if(in == 0x12)
+[e $ ! == -> _in `i -> 18 `i 1219  ]
+[; ;clock.c: 71: return 0x01;
+"71
 [e ) -> -> 1 `i `uc ]
-[e $UE 1217  ]
-[e $U 1221  ]
-"77
-[e :U 1220 ]
-[; ;clock.c: 77: else
-[; ;clock.c: 78: return in + 1;
-"78
-[e ) -> + -> _in `i -> 1 `i `uc ]
-[e $UE 1217  ]
-[e :U 1221 ]
+[e $UE 1216  ]
+[e $U 1220  ]
+"72
 [e :U 1219 ]
-[; ;clock.c: 79: }
-"79
-[e :UE 1217 ]
+[; ;clock.c: 72: else
+[; ;clock.c: 73: return in + 1;
+"73
+[e ) -> + -> _in `i -> 1 `i `uc ]
+[e $UE 1216  ]
+[e :U 1220 ]
+[e :U 1218 ]
+[; ;clock.c: 74: }
+"74
+[e :UE 1216 ]
 }
-"81
+"76
 [v _Clock_Tap `(v ~T0 @X0 1 ef1`uc ]
-"82
+"77
 {
-[; ;clock.c: 81: void Clock_Tap(bool hours)
-[; ;clock.c: 82: {
+[; ;clock.c: 76: void Clock_Tap(bool hours)
+[; ;clock.c: 77: {
 [e :U _Clock_Tap ]
-"81
+"76
 [v _hours `uc ~T0 @X0 1 r1 ]
-"82
+"77
 [f ]
-[; ;clock.c: 83: if(hours)
-"83
-[e $ ! != -> _hours `i -> -> -> 0 `i `uc `i 1223  ]
-[; ;clock.c: 84: hour = IncHour(hour);
-"84
+[; ;clock.c: 78: if(hours)
+"78
+[e $ ! != -> _hours `i -> -> -> 0 `i `uc `i 1222  ]
+[; ;clock.c: 79: hour = IncHour(hour);
+"79
 [e = _hour ( _IncHour (1 _hour ]
-[e $U 1224  ]
-"85
-[e :U 1223 ]
-[; ;clock.c: 85: else
-[; ;clock.c: 86: {
-"86
+[e $U 1223  ]
+"80
+[e :U 1222 ]
+[; ;clock.c: 80: else
+[; ;clock.c: 81: {
+"81
 {
-[; ;clock.c: 87: if(min >= 0x55)
-"87
-[e $ ! >= -> _min `i -> 85 `i 1225  ]
-[; ;clock.c: 88: min = 0x00;
-"88
+[; ;clock.c: 82: if(min >= 0x55)
+"82
+[e $ ! >= -> _min `i -> 85 `i 1224  ]
+[; ;clock.c: 83: min = 0x00;
+"83
 [e = _min -> -> 0 `i `uc ]
-[e $U 1226  ]
-"89
-[e :U 1225 ]
-[; ;clock.c: 89: else if((min & 0xf) >= 0x5)
-[e $ ! >= & -> _min `i -> 15 `i -> 5 `i 1227  ]
-[; ;clock.c: 90: min = ((min & 0xf0) + 0x10);
-"90
-[e = _min -> + & -> _min `i -> 240 `i -> 16 `i `uc ]
-[e $U 1228  ]
-"91
-[e :U 1227 ]
-[; ;clock.c: 91: else
-[; ;clock.c: 92: min = ((min & 0xf0) + 0x05);
-"92
-[e = _min -> + & -> _min `i -> 240 `i -> 5 `i `uc ]
-[e :U 1228 ]
-[e :U 1226 ]
-"93
-}
+[e $U 1225  ]
+"84
 [e :U 1224 ]
-[; ;clock.c: 93: }
-[; ;clock.c: 95: Clock_Display(0);
-"95
-[e ( _Clock_Display (1 -> -> 0 `i `uc ]
-[; ;clock.c: 96: }
-"96
-[e :UE 1222 ]
+[; ;clock.c: 84: else if((min & 0xf) >= 0x5)
+[e $ ! >= & -> _min `i -> 15 `i -> 5 `i 1226  ]
+[; ;clock.c: 85: min = ((min & 0xf0) + 0x10);
+"85
+[e = _min -> + & -> _min `i -> 240 `i -> 16 `i `uc ]
+[e $U 1227  ]
+"86
+[e :U 1226 ]
+[; ;clock.c: 86: else
+[; ;clock.c: 87: min = ((min & 0xf0) + 0x05);
+"87
+[e = _min -> + & -> _min `i -> 240 `i -> 5 `i `uc ]
+[e :U 1227 ]
+[e :U 1225 ]
+"88
 }
-"98
-[v _Clock_SetTime `(v ~T0 @X0 1 ef2`uc`uc ]
-"99
-{
-[; ;clock.c: 98: void Clock_SetTime(uint8_t hourIn, uint8_t minsIn)
-[; ;clock.c: 99: {
-[e :U _Clock_SetTime ]
-"98
-[v _hourIn `uc ~T0 @X0 1 r1 ]
-[v _minsIn `uc ~T0 @X0 1 r2 ]
-"99
-[f ]
-[; ;clock.c: 100: if(hourIn > 12)
-"100
-[e $ ! > -> _hourIn `i -> 12 `i 1230  ]
-[; ;clock.c: 101: hourIn -= 12;
-"101
-[e =- _hourIn -> -> 12 `i `uc ]
-[e :U 1230 ]
-[; ;clock.c: 102: if(hourIn >= 10)
-"102
-[e $ ! >= -> _hourIn `i -> 10 `i 1231  ]
-[; ;clock.c: 103: hourIn = hourIn - 10 + 0x10;
-"103
-[e = _hourIn -> + - -> _hourIn `i -> 10 `i -> 16 `i `uc ]
-[e :U 1231 ]
-[; ;clock.c: 104: hour = hourIn;
-"104
-[e = _hour _hourIn ]
-[; ;clock.c: 106: if(minsIn >= 50)
-"106
-[e $ ! >= -> _minsIn `i -> 50 `i 1232  ]
-[; ;clock.c: 107: minsIn = minsIn - 50 + 0x50;
-"107
-[e = _minsIn -> + - -> _minsIn `i -> 50 `i -> 80 `i `uc ]
-[e $U 1233  ]
-"108
-[e :U 1232 ]
-[; ;clock.c: 108: else if(minsIn >= 40)
-[e $ ! >= -> _minsIn `i -> 40 `i 1234  ]
-[; ;clock.c: 109: minsIn = minsIn - 40 + 0x40;
-"109
-[e = _minsIn -> + - -> _minsIn `i -> 40 `i -> 64 `i `uc ]
-[e $U 1235  ]
-"110
-[e :U 1234 ]
-[; ;clock.c: 110: else if(minsIn >= 30)
-[e $ ! >= -> _minsIn `i -> 30 `i 1236  ]
-[; ;clock.c: 111: minsIn = minsIn - 30 + 0x30;
-"111
-[e = _minsIn -> + - -> _minsIn `i -> 30 `i -> 48 `i `uc ]
-[e $U 1237  ]
-"112
-[e :U 1236 ]
-[; ;clock.c: 112: else if(minsIn >= 20)
-[e $ ! >= -> _minsIn `i -> 20 `i 1238  ]
-[; ;clock.c: 113: minsIn = minsIn - 20 + 0x20;
-"113
-[e = _minsIn -> + - -> _minsIn `i -> 20 `i -> 32 `i `uc ]
-[e $U 1239  ]
-"114
-[e :U 1238 ]
-[; ;clock.c: 114: else if(minsIn >= 10)
-[e $ ! >= -> _minsIn `i -> 10 `i 1240  ]
-[; ;clock.c: 115: minsIn = minsIn - 10 + 0x10;
-"115
-[e = _minsIn -> + - -> _minsIn `i -> 10 `i -> 16 `i `uc ]
-[e :U 1240 ]
-"116
-[e :U 1239 ]
-[e :U 1237 ]
-[e :U 1235 ]
-[e :U 1233 ]
-[; ;clock.c: 116: min = minsIn;
-[e = _min _minsIn ]
-[; ;clock.c: 118: Clock_Write();
-"118
-[e ( _Clock_Write ..  ]
-[; ;clock.c: 119: Clock_Display(0);
-"119
+[e :U 1223 ]
+[; ;clock.c: 88: }
+[; ;clock.c: 90: Clock_Display(0);
+"90
 [e ( _Clock_Display (1 -> -> 0 `i `uc ]
-[; ;clock.c: 120: }
-"120
-[e :UE 1229 ]
+[; ;clock.c: 91: }
+"91
+[e :UE 1221 ]
 }
-"122
+"93
 [v _Clock_Write `(v ~T0 @X0 1 ef ]
-"123
+"94
 {
-[; ;clock.c: 122: void Clock_Write()
-[; ;clock.c: 123: {
+[; ;clock.c: 93: void Clock_Write()
+[; ;clock.c: 94: {
 [e :U _Clock_Write ]
 [f ]
-"124
+"95
 [v _writeBuffer `uc ~T0 @X0 -> 4 `i a ]
-"125
-[v _status `E12087 ~T0 @X0 1 a ]
-[; ;clock.c: 124: uint8_t writeBuffer[4];
-[; ;clock.c: 125: I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
-[e = _status . `E12087 2 ]
-[; ;clock.c: 127: writeBuffer[0] = 0x00;
-"127
+"96
+[v _status `E12012 ~T0 @X0 1 a ]
+[; ;clock.c: 95: uint8_t writeBuffer[4];
+[; ;clock.c: 96: I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
+[e = _status . `E12012 2 ]
+[; ;clock.c: 98: writeBuffer[0] = 0x00;
+"98
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
-[; ;clock.c: 128: writeBuffer[1] = 0x80;
-"128
+[; ;clock.c: 99: writeBuffer[1] = 0x80;
+"99
 [e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 128 `i `uc ]
-[; ;clock.c: 129: writeBuffer[2] = min;
-"129
+[; ;clock.c: 100: writeBuffer[2] = min;
+"100
 [e = *U + &U _writeBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux _min ]
-[; ;clock.c: 130: writeBuffer[3] = (hour | 0x40);
-"130
+[; ;clock.c: 101: writeBuffer[3] = (hour | 0x40);
+"101
 [e = *U + &U _writeBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> | -> _hour `i -> 64 `i `uc ]
-[; ;clock.c: 131: I2CWrite(writeBuffer, 4, 0b1101111);
-"131
+[; ;clock.c: 102: I2CWrite(writeBuffer, 4, 0b1101111);
+"102
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 4 `i `uc -> -> 111 `i `ui ]
-[; ;clock.c: 132: }
-"132
-[e :UE 1241 ]
+[; ;clock.c: 103: }
+"103
+[e :UE 1228 ]
 }
-"134
-[v _Clock_Display `(v ~T0 @X0 1 ef1`uc ]
-"135
+"105
+[v _Clock_Read `(v ~T0 @X0 1 ef ]
+"106
 {
-[; ;clock.c: 134: void Clock_Display(bool fetchTime)
-[; ;clock.c: 135: {
-[e :U _Clock_Display ]
-"134
-[v _fetchTime `uc ~T0 @X0 1 r1 ]
-"135
+[; ;clock.c: 105: void Clock_Read()
+[; ;clock.c: 106: {
+[e :U _Clock_Read ]
 [f ]
-[; ;clock.c: 136: if(fetchTime)
-"136
-[e $ ! != -> _fetchTime `i -> -> -> 0 `i `uc `i 1243  ]
-[; ;clock.c: 137: {
-"137
-{
-"138
-[v _dataBuffer `uc ~T0 @X0 -> 2 `i a ]
-[; ;clock.c: 138: uint8_t dataBuffer[2];
-[; ;clock.c: 140: I2CRead(dataBuffer, 0x01, 2, 0b1101111);
-"140
-[e ( _I2CRead (4 , , , &U _dataBuffer -> -> 1 `i `uc -> -> 2 `i `uc -> -> 111 `i `ui ]
-[; ;clock.c: 141: min = dataBuffer[0];
-"141
-[e = _min *U + &U _dataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux ]
-[; ;clock.c: 142: hour = (dataBuffer[1] & 0x1F);
-"142
-[e = _hour -> & -> *U + &U _dataBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux `i -> 31 `i `uc ]
-"143
+"107
+[v _dataBuffer `uc ~T0 @X0 -> 3 `i a ]
+[; ;clock.c: 107: uint8_t dataBuffer[3];
+[; ;clock.c: 109: I2CRead(dataBuffer, 0x00, 3, 0b1101111);
+"109
+[e ( _I2CRead (4 , , , &U _dataBuffer -> -> 0 `i `uc -> -> 3 `i `uc -> -> 111 `i `ui ]
+[; ;clock.c: 110: sec = (dataBuffer[0] & 0x7f);
+"110
+[e = _sec -> & -> *U + &U _dataBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux `i -> 127 `i `uc ]
+[; ;clock.c: 111: min = dataBuffer[1];
+"111
+[e = _min *U + &U _dataBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux ]
+[; ;clock.c: 112: hour = (dataBuffer[2] & 0x1F);
+"112
+[e = _hour -> & -> *U + &U _dataBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _dataBuffer `ui `ux `i -> 31 `i `uc ]
+[; ;clock.c: 113: }
+"113
+[e :UE 1229 ]
 }
-[e :U 1243 ]
-"145
+"115
+[v _Clock_Display `(v ~T0 @X0 1 ef1`uc ]
+"116
+{
+[; ;clock.c: 115: void Clock_Display(bool fetchTime)
+[; ;clock.c: 116: {
+[e :U _Clock_Display ]
+"115
+[v _fetchTime `uc ~T0 @X0 1 r1 ]
+"116
+[f ]
+[; ;clock.c: 117: if(fetchTime)
+"117
+[e $ ! != -> _fetchTime `i -> -> -> 0 `i `uc `i 1231  ]
+[; ;clock.c: 118: Clock_Read();
+"118
+[e ( _Clock_Read ..  ]
+[e :U 1231 ]
+"120
 [v _row `*c ~T0 @X0 1 a ]
-[; ;clock.c: 143: }
-[; ;clock.c: 145: int8_t* row = DISPLAYBANK_row;
+[; ;clock.c: 120: int8_t* row = DISPLAYBANK_row;
 [e = _row &U _DISPLAYBANK_row ]
-"146
+"121
 [v _col `*ui ~T0 @X0 1 a ]
-[; ;clock.c: 146: uint16_t* col = DISPLAYBANK_col;
+[; ;clock.c: 121: uint16_t* col = DISPLAYBANK_col;
 [e = _col &U _DISPLAYBANK_col ]
-[; ;clock.c: 148: *(row++) = 0;
-"148
+[; ;clock.c: 123: *(row++) = 0;
+"123
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 0 `i `c ]
-[; ;clock.c: 149: *(col++) = 0x7E4;
-"149
+[; ;clock.c: 124: *(col++) = 0x7E4;
+"124
 [e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2020 `i `ui ]
-"151
+"126
 [v _hourDisplay `uc ~T0 @X0 1 a ]
-[; ;clock.c: 151: uint8_t hourDisplay = hour;
+[; ;clock.c: 126: uint8_t hourDisplay = hour;
 [e = _hourDisplay _hour ]
-[; ;clock.c: 153: if(min >= 0x05)
+[; ;clock.c: 128: if(min >= 0x05)
+"128
+[e $ ! >= -> _min `i -> 5 `i 1232  ]
+[; ;clock.c: 129: {
+"129
+{
+[; ;clock.c: 130: if(min < 0x10 || min >= 0x55)
+"130
+[e $ ! || < -> _min `i -> 16 `i >= -> _min `i -> 85 `i 1233  ]
+[; ;clock.c: 131: {
+"131
+{
+[; ;clock.c: 132: *(row++) = 2;
+"132
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
+[; ;clock.c: 133: *(col++) = 0x43F;
+"133
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1087 `i `ui ]
+"134
+}
+[; ;clock.c: 134: }
+[e $U 1234  ]
+"135
+[e :U 1233 ]
+[; ;clock.c: 135: else if(min < 0x15 || min >= 0x50)
+[e $ ! || < -> _min `i -> 21 `i >= -> _min `i -> 80 `i 1235  ]
+[; ;clock.c: 136: {
+"136
+{
+[; ;clock.c: 137: if(min >= 0x50)
+"137
+[e $ ! >= -> _min `i -> 80 `i 1236  ]
+[; ;clock.c: 138: {
+"138
+{
+[; ;clock.c: 139: *(row++) = 3;
+"139
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
+[; ;clock.c: 140: *(col++) = 0x11F;
+"140
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 287 `i `ui ]
+"141
+}
+[; ;clock.c: 141: }
+[e $U 1237  ]
+"142
+[e :U 1236 ]
+[; ;clock.c: 142: else
+[; ;clock.c: 143: {
+"143
+{
+[; ;clock.c: 144: *(row++) = 3;
+"144
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
+[; ;clock.c: 145: *(col++) = 0x71F;
+"145
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1823 `i `ui ]
+"146
+}
+[e :U 1237 ]
+"147
+}
+[; ;clock.c: 146: }
+[; ;clock.c: 147: }
+[e $U 1238  ]
+"148
+[e :U 1235 ]
+[; ;clock.c: 148: else if(min < 0x20 || min >= 0x45)
+[e $ ! || < -> _min `i -> 32 `i >= -> _min `i -> 69 `i 1239  ]
+[; ;clock.c: 149: {
+"149
+{
+[; ;clock.c: 150: *(row++) = 1;
+"150
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 1 `i `c ]
+[; ;clock.c: 151: *(col++) = 0x602;
+"151
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1538 `i `ui ]
+"152
+}
+[; ;clock.c: 152: }
+[e $U 1240  ]
 "153
-[e $ ! >= -> _min `i -> 5 `i 1244  ]
+[e :U 1239 ]
+[; ;clock.c: 153: else if(min < 0x25 || min >= 0x40)
+[e $ ! || < -> _min `i -> 37 `i >= -> _min `i -> 64 `i 1241  ]
 [; ;clock.c: 154: {
 "154
 {
-[; ;clock.c: 155: if(min < 0x10 || min >= 0x55)
+[; ;clock.c: 155: *(row++) = 2;
 "155
-[e $ ! || < -> _min `i -> 16 `i >= -> _min `i -> 85 `i 1245  ]
-[; ;clock.c: 156: {
-"156
-{
-[; ;clock.c: 157: *(row++) = 2;
-"157
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;clock.c: 158: *(col++) = 0x43F;
+[; ;clock.c: 156: *(col++) = 0x7C0;
+"156
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1984 `i `ui ]
+"157
+}
+[; ;clock.c: 157: }
+[e $U 1242  ]
 "158
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1087 `i `ui ]
+[e :U 1241 ]
+[; ;clock.c: 158: else if(min < 0x30 || min >= 0x35)
+[e $ ! || < -> _min `i -> 48 `i >= -> _min `i -> 53 `i 1243  ]
+[; ;clock.c: 159: {
 "159
-}
-[; ;clock.c: 159: }
-[e $U 1246  ]
+{
+[; ;clock.c: 160: *(row++) = 2;
 "160
-[e :U 1245 ]
-[; ;clock.c: 160: else if(min < 0x15 || min >= 0x50)
-[e $ ! || < -> _min `i -> 21 `i >= -> _min `i -> 80 `i 1247  ]
-[; ;clock.c: 161: {
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
+[; ;clock.c: 161: *(col++) = 0x400;
 "161
-{
-[; ;clock.c: 162: if(min >= 0x50)
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1024 `i `ui ]
 "162
-[e $ ! >= -> _min `i -> 80 `i 1248  ]
-[; ;clock.c: 163: {
-"163
-{
-[; ;clock.c: 164: *(row++) = 3;
-"164
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;clock.c: 165: *(col++) = 0x11F;
-"165
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 287 `i `ui ]
-"166
 }
-[; ;clock.c: 166: }
-[e $U 1249  ]
-"167
-[e :U 1248 ]
-[; ;clock.c: 167: else
-[; ;clock.c: 168: {
-"168
+[; ;clock.c: 162: }
+[e $U 1244  ]
+"163
+[e :U 1243 ]
+[; ;clock.c: 163: else
+[; ;clock.c: 164: {
+"164
 {
-[; ;clock.c: 169: *(row++) = 3;
-"169
+[; ;clock.c: 165: *(row++) = 3;
+"165
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;clock.c: 170: *(col++) = 0x71F;
+[; ;clock.c: 166: *(col++) = 0x7F0;
+"166
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2032 `i `ui ]
+"167
+}
+[e :U 1244 ]
+[e :U 1242 ]
+[e :U 1240 ]
+[e :U 1238 ]
+[e :U 1234 ]
+[; ;clock.c: 167: }
+[; ;clock.c: 168: if(min >= 0x35)
+"168
+[e $ ! >= -> _min `i -> 53 `i 1245  ]
+[; ;clock.c: 169: {
+"169
+{
+[; ;clock.c: 170: if(min < 0x50 || min >= 0x55)
 "170
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1823 `i `ui ]
+[e $ ! || < -> _min `i -> 80 `i >= -> _min `i -> 85 `i 1246  ]
+[; ;clock.c: 171: {
 "171
+{
+[; ;clock.c: 172: *(row++) = 3;
+"172
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
+[; ;clock.c: 173: *(col++) = 0x1FF;
+"173
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 511 `i `ui ]
+"174
+}
+[e :U 1246 ]
+[; ;clock.c: 174: }
+[; ;clock.c: 175: hourDisplay = IncHour(hourDisplay);
+"175
+[e = _hourDisplay ( _IncHour (1 _hourDisplay ]
+"176
+}
+[; ;clock.c: 176: }
+[e $U 1247  ]
+"177
+[e :U 1245 ]
+[; ;clock.c: 177: else
+[; ;clock.c: 178: {
+"178
+{
+[; ;clock.c: 179: if(hourDisplay == 0x09)
+"179
+[e $ ! == -> _hourDisplay `i -> 9 `i 1248  ]
+[; ;clock.c: 180: {
+"180
+{
+[; ;clock.c: 181: hourDisplay = 13;
+"181
+[e = _hourDisplay -> -> 13 `i `uc ]
+[; ;clock.c: 182: *(row++) = 4;
+"182
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
+[; ;clock.c: 183: *(col++) = 0x070;
+"183
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 112 `i `ui ]
+"184
+}
+[; ;clock.c: 184: }
+[e $U 1249  ]
+"185
+[e :U 1248 ]
+[; ;clock.c: 185: else
+[; ;clock.c: 186: {
+"186
+{
+[; ;clock.c: 187: *(row++) = 4;
+"187
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
+[; ;clock.c: 188: *(col++) = 0x7F0;
+"188
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2032 `i `ui ]
+"189
 }
 [e :U 1249 ]
-"172
-}
-[; ;clock.c: 171: }
-[; ;clock.c: 172: }
-[e $U 1250  ]
-"173
-[e :U 1247 ]
-[; ;clock.c: 173: else if(min < 0x20 || min >= 0x45)
-[e $ ! || < -> _min `i -> 32 `i >= -> _min `i -> 69 `i 1251  ]
-[; ;clock.c: 174: {
-"174
-{
-[; ;clock.c: 175: *(row++) = 1;
-"175
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 1 `i `c ]
-[; ;clock.c: 176: *(col++) = 0x602;
-"176
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1538 `i `ui ]
-"177
-}
-[; ;clock.c: 177: }
-[e $U 1252  ]
-"178
-[e :U 1251 ]
-[; ;clock.c: 178: else if(min < 0x25 || min >= 0x40)
-[e $ ! || < -> _min `i -> 37 `i >= -> _min `i -> 64 `i 1253  ]
-[; ;clock.c: 179: {
-"179
-{
-[; ;clock.c: 180: *(row++) = 2;
-"180
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;clock.c: 181: *(col++) = 0x7C0;
-"181
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1984 `i `ui ]
-"182
-}
-[; ;clock.c: 182: }
-[e $U 1254  ]
-"183
-[e :U 1253 ]
-[; ;clock.c: 183: else if(min < 0x30 || min >= 0x35)
-[e $ ! || < -> _min `i -> 48 `i >= -> _min `i -> 53 `i 1255  ]
-[; ;clock.c: 184: {
-"184
-{
-[; ;clock.c: 185: *(row++) = 2;
-"185
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;clock.c: 186: *(col++) = 0x400;
-"186
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1024 `i `ui ]
-"187
-}
-[; ;clock.c: 187: }
-[e $U 1256  ]
-"188
-[e :U 1255 ]
-[; ;clock.c: 188: else
-[; ;clock.c: 189: {
-"189
-{
-[; ;clock.c: 190: *(row++) = 3;
 "190
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;clock.c: 191: *(col++) = 0x7F0;
-"191
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2032 `i `ui ]
-"192
 }
-[e :U 1256 ]
-[e :U 1254 ]
-[e :U 1252 ]
-[e :U 1250 ]
-[e :U 1246 ]
-[; ;clock.c: 192: }
-[; ;clock.c: 193: if(min >= 0x35)
+[e :U 1247 ]
+"191
+}
+[e :U 1232 ]
+[; ;clock.c: 189: }
+[; ;clock.c: 190: }
+[; ;clock.c: 191: }
+[; ;clock.c: 193: if(min < 0x05)
 "193
-[e $ ! >= -> _min `i -> 53 `i 1257  ]
+[e $ ! < -> _min `i -> 5 `i 1250  ]
 [; ;clock.c: 194: {
 "194
 {
-[; ;clock.c: 195: if(min < 0x50 || min >= 0x55)
+[; ;clock.c: 195: if(hourDisplay == 10)
 "195
-[e $ ! || < -> _min `i -> 80 `i >= -> _min `i -> 85 `i 1258  ]
+[e $ ! == -> _hourDisplay `i -> 10 `i 1251  ]
 [; ;clock.c: 196: {
 "196
 {
-[; ;clock.c: 197: *(row++) = 3;
+[; ;clock.c: 197: *(row++) = 9;
 "197
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;clock.c: 198: *(col++) = 0x1FF;
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
+[; ;clock.c: 198: *(col++) = 0x018;
 "198
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 511 `i `ui ]
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 24 `i `ui ]
 "199
 }
-[e :U 1258 ]
 [; ;clock.c: 199: }
-[; ;clock.c: 200: hourDisplay = IncHour(hourDisplay);
+[e $U 1252  ]
 "200
-[e = _hourDisplay ( _IncHour (1 _hourDisplay ]
+[e :U 1251 ]
+[; ;clock.c: 200: else
+[; ;clock.c: 201: {
 "201
-}
-[; ;clock.c: 201: }
-[e $U 1259  ]
+{
+[; ;clock.c: 202: *(row++) = 9;
 "202
-[e :U 1257 ]
-[; ;clock.c: 202: else
-[; ;clock.c: 203: {
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
+[; ;clock.c: 203: *(col++) = 0x01F;
 "203
-{
-[; ;clock.c: 204: if(hourDisplay == 0x09)
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
 "204
-[e $ ! == -> _hourDisplay `i -> 9 `i 1260  ]
-[; ;clock.c: 205: {
+}
+[e :U 1252 ]
 "205
-{
-[; ;clock.c: 206: hourDisplay = 13;
-"206
-[e = _hourDisplay -> -> 13 `i `uc ]
-[; ;clock.c: 207: *(row++) = 4;
+}
+[e :U 1250 ]
+[; ;clock.c: 204: }
+[; ;clock.c: 205: }
+[; ;clock.c: 207: switch(hourDisplay)
 "207
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;clock.c: 208: *(col++) = 0x070;
+[e $U 1254  ]
+[; ;clock.c: 208: {
 "208
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 112 `i `ui ]
+{
+[; ;clock.c: 209: case 0x00:
 "209
-}
-[; ;clock.c: 209: }
-[e $U 1261  ]
+[e :U 1255 ]
 "210
-[e :U 1260 ]
-[; ;clock.c: 210: else
-[; ;clock.c: 211: {
+[e :U 1256 ]
+[; ;clock.c: 210: case 0x12:
+[; ;clock.c: 211: *(row++) = 8;
 "211
-{
-[; ;clock.c: 212: *(row++) = 4;
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
+[; ;clock.c: 212: *(col++) = 0x01F;
 "212
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;clock.c: 213: *(col++) = 0x7F0;
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
+[; ;clock.c: 213: break;
 "213
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2032 `i `ui ]
+[e $U 1253  ]
+[; ;clock.c: 214: case 0x01:
 "214
-}
-[e :U 1261 ]
+[e :U 1257 ]
+[; ;clock.c: 215: *(row++) = 5;
 "215
-}
-[e :U 1259 ]
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
+[; ;clock.c: 216: *(col++) = 0x7F8;
 "216
-}
-[e :U 1244 ]
-[; ;clock.c: 214: }
-[; ;clock.c: 215: }
-[; ;clock.c: 216: }
-[; ;clock.c: 218: if(min < 0x05)
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2040 `i `ui ]
+[; ;clock.c: 217: break;
+"217
+[e $U 1253  ]
+[; ;clock.c: 218: case 0x02:
 "218
-[e $ ! < -> _min `i -> 5 `i 1262  ]
-[; ;clock.c: 219: {
+[e :U 1258 ]
+[; ;clock.c: 219: *(row++) = 6;
 "219
-{
-[; ;clock.c: 220: if(hourDisplay == 10)
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
+[; ;clock.c: 220: *(col++) = 0x0FF;
 "220
-[e $ ! == -> _hourDisplay `i -> 10 `i 1263  ]
-[; ;clock.c: 221: {
-"221
-{
-[; ;clock.c: 222: *(row++) = 9;
-"222
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
-[; ;clock.c: 223: *(col++) = 0x018;
-"223
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 24 `i `ui ]
-"224
-}
-[; ;clock.c: 224: }
-[e $U 1264  ]
-"225
-[e :U 1263 ]
-[; ;clock.c: 225: else
-[; ;clock.c: 226: {
-"226
-{
-[; ;clock.c: 227: *(row++) = 9;
-"227
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
-[; ;clock.c: 228: *(col++) = 0x01F;
-"228
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
-"229
-}
-[e :U 1264 ]
-"230
-}
-[e :U 1262 ]
-[; ;clock.c: 229: }
-[; ;clock.c: 230: }
-[; ;clock.c: 232: switch(hourDisplay)
-"232
-[e $U 1266  ]
-[; ;clock.c: 233: {
-"233
-{
-[; ;clock.c: 234: case 0x00:
-"234
-[e :U 1267 ]
-"235
-[e :U 1268 ]
-[; ;clock.c: 235: case 0x12:
-[; ;clock.c: 236: *(row++) = 8;
-"236
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
-[; ;clock.c: 237: *(col++) = 0x01F;
-"237
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
-[; ;clock.c: 238: break;
-"238
-[e $U 1265  ]
-[; ;clock.c: 239: case 0x01:
-"239
-[e :U 1269 ]
-[; ;clock.c: 240: *(row++) = 5;
-"240
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;clock.c: 241: *(col++) = 0x7F8;
-"241
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2040 `i `ui ]
-[; ;clock.c: 242: break;
-"242
-[e $U 1265  ]
-[; ;clock.c: 243: case 0x02:
-"243
-[e :U 1270 ]
-[; ;clock.c: 244: *(row++) = 6;
-"244
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;clock.c: 245: *(col++) = 0x0FF;
-"245
 [e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 255 `i `ui ]
-[; ;clock.c: 246: break;
-"246
-[e $U 1265  ]
-[; ;clock.c: 247: case 0x03:
-"247
-[e :U 1271 ]
-[; ;clock.c: 248: *(row++) = 5;
-"248
+[; ;clock.c: 221: break;
+"221
+[e $U 1253  ]
+[; ;clock.c: 222: case 0x03:
+"222
+[e :U 1259 ]
+[; ;clock.c: 223: *(row++) = 5;
+"223
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;clock.c: 249: *(col++) = 0x03F;
-"249
+[; ;clock.c: 224: *(col++) = 0x03F;
+"224
 [e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 63 `i `ui ]
-[; ;clock.c: 250: break;
-"250
-[e $U 1265  ]
-[; ;clock.c: 251: case 0x04:
-"251
-[e :U 1272 ]
-[; ;clock.c: 252: *(row++) = 6;
-"252
+[; ;clock.c: 225: break;
+"225
+[e $U 1253  ]
+[; ;clock.c: 226: case 0x04:
+"226
+[e :U 1260 ]
+[; ;clock.c: 227: *(row++) = 6;
+"227
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;clock.c: 253: *(col++) = 0x7F0;
-"253
+[; ;clock.c: 228: *(col++) = 0x7F0;
+"228
 [e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2032 `i `ui ]
-[; ;clock.c: 254: break;
-"254
-[e $U 1265  ]
-[; ;clock.c: 255: case 0x05:
-"255
-[e :U 1273 ]
-[; ;clock.c: 256: *(row++) = 6;
-"256
+[; ;clock.c: 229: break;
+"229
+[e $U 1253  ]
+[; ;clock.c: 230: case 0x05:
+"230
+[e :U 1261 ]
+[; ;clock.c: 231: *(row++) = 6;
+"231
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;clock.c: 257: *(col++) = 0x70F;
-"257
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1807 `i `ui ]
-[; ;clock.c: 258: break;
-"258
-[e $U 1265  ]
-[; ;clock.c: 259: case 0x06:
-"259
-[e :U 1274 ]
-[; ;clock.c: 260: *(row++) = 5;
-"260
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;clock.c: 261: *(col++) = 0x7C7;
-"261
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1991 `i `ui ]
-[; ;clock.c: 262: break;
-"262
-[e $U 1265  ]
-[; ;clock.c: 263: case 0x07:
-"263
-[e :U 1275 ]
-[; ;clock.c: 264: *(row++) = 8;
-"264
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
-[; ;clock.c: 265: *(col++) = 0x7E0;
-"265
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2016 `i `ui ]
-[; ;clock.c: 266: break;
-"266
-[e $U 1265  ]
-[; ;clock.c: 267: case 0x08:
-"267
-[e :U 1276 ]
-[; ;clock.c: 268: *(row++) = 7;
-"268
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
-[; ;clock.c: 269: *(col++) = 0x7E0;
-"269
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2016 `i `ui ]
-[; ;clock.c: 270: break;
-"270
-[e $U 1265  ]
-[; ;clock.c: 271: case 0x09:
-"271
-[e :U 1277 ]
-[; ;clock.c: 272: *(row++) = 4;
-"272
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;clock.c: 273: *(col++) = 0x07F;
-"273
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 127 `i `ui ]
-[; ;clock.c: 274: break;
-"274
-[e $U 1265  ]
-[; ;clock.c: 275: case 0x10:
-"275
-[e :U 1278 ]
-[; ;clock.c: 276: *(row++) = 9;
-"276
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
-[; ;clock.c: 277: *(col++) = 0x7F8;
-"277
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2040 `i `ui ]
-[; ;clock.c: 278: break;
-"278
-[e $U 1265  ]
-[; ;clock.c: 279: case 0x11:
-"279
-[e :U 1279 ]
-[; ;clock.c: 280: *(row++) = 7;
-"280
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
-[; ;clock.c: 281: *(col++) = 0x01F;
-"281
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
-[; ;clock.c: 282: break;
-"282
-[e $U 1265  ]
-"283
-}
-[; ;clock.c: 283: }
-[e $U 1265  ]
+[; ;clock.c: 232: *(col++) = 0x70F;
 "232
-[e :U 1266 ]
-[e [\ _hourDisplay , $ -> -> 0 `i `uc 1267
- , $ -> -> 18 `i `uc 1268
- , $ -> -> 1 `i `uc 1269
- , $ -> -> 2 `i `uc 1270
- , $ -> -> 3 `i `uc 1271
- , $ -> -> 4 `i `uc 1272
- , $ -> -> 5 `i `uc 1273
- , $ -> -> 6 `i `uc 1274
- , $ -> -> 7 `i `uc 1275
- , $ -> -> 8 `i `uc 1276
- , $ -> -> 9 `i `uc 1277
- , $ -> -> 16 `i `uc 1278
- , $ -> -> 17 `i `uc 1279
- 1265 ]
-"283
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1807 `i `ui ]
+[; ;clock.c: 233: break;
+"233
+[e $U 1253  ]
+[; ;clock.c: 234: case 0x06:
+"234
+[e :U 1262 ]
+[; ;clock.c: 235: *(row++) = 5;
+"235
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
+[; ;clock.c: 236: *(col++) = 0x7C7;
+"236
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1991 `i `ui ]
+[; ;clock.c: 237: break;
+"237
+[e $U 1253  ]
+[; ;clock.c: 238: case 0x07:
+"238
+[e :U 1263 ]
+[; ;clock.c: 239: *(row++) = 8;
+"239
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
+[; ;clock.c: 240: *(col++) = 0x7E0;
+"240
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2016 `i `ui ]
+[; ;clock.c: 241: break;
+"241
+[e $U 1253  ]
+[; ;clock.c: 242: case 0x08:
+"242
+[e :U 1264 ]
+[; ;clock.c: 243: *(row++) = 7;
+"243
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
+[; ;clock.c: 244: *(col++) = 0x7E0;
+"244
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2016 `i `ui ]
+[; ;clock.c: 245: break;
+"245
+[e $U 1253  ]
+[; ;clock.c: 246: case 0x09:
+"246
 [e :U 1265 ]
-[; ;clock.c: 285: *(row++) = -1;
-"285
+[; ;clock.c: 247: *(row++) = 4;
+"247
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
+[; ;clock.c: 248: *(col++) = 0x07F;
+"248
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 127 `i `ui ]
+[; ;clock.c: 249: break;
+"249
+[e $U 1253  ]
+[; ;clock.c: 250: case 0x10:
+"250
+[e :U 1266 ]
+[; ;clock.c: 251: *(row++) = 9;
+"251
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 9 `i `c ]
+[; ;clock.c: 252: *(col++) = 0x7F8;
+"252
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2040 `i `ui ]
+[; ;clock.c: 253: break;
+"253
+[e $U 1253  ]
+[; ;clock.c: 254: case 0x11:
+"254
+[e :U 1267 ]
+[; ;clock.c: 255: *(row++) = 7;
+"255
+[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
+[; ;clock.c: 256: *(col++) = 0x01F;
+"256
+[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 31 `i `ui ]
+[; ;clock.c: 257: break;
+"257
+[e $U 1253  ]
+"258
+}
+[; ;clock.c: 258: }
+[e $U 1253  ]
+"207
+[e :U 1254 ]
+[e [\ _hourDisplay , $ -> -> 0 `i `uc 1255
+ , $ -> -> 18 `i `uc 1256
+ , $ -> -> 1 `i `uc 1257
+ , $ -> -> 2 `i `uc 1258
+ , $ -> -> 3 `i `uc 1259
+ , $ -> -> 4 `i `uc 1260
+ , $ -> -> 5 `i `uc 1261
+ , $ -> -> 6 `i `uc 1262
+ , $ -> -> 7 `i `uc 1263
+ , $ -> -> 8 `i `uc 1264
+ , $ -> -> 9 `i `uc 1265
+ , $ -> -> 16 `i `uc 1266
+ , $ -> -> 17 `i `uc 1267
+ 1253 ]
+"258
+[e :U 1253 ]
+[; ;clock.c: 260: *(row++) = -1;
+"260
 [e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -U -> 1 `i `c ]
-[; ;clock.c: 286: }
-"286
-[e :UE 1242 ]
+[; ;clock.c: 261: }
+"261
+[e :UE 1230 ]
 }

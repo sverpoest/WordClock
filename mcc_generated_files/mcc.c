@@ -13,7 +13,7 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15.5
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.9
         Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -80,7 +80,6 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     I2C_Initialize();
     TMR1_Initialize();
-    EUSART_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)

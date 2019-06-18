@@ -13,7 +13,7 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15.5
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.9
         Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -72,6 +72,7 @@ void PIN_MANAGER_Initialize(void)
     */   
     ANSELC = 0xC3;
     ANSELB = 0x80;
+    ANSELB = 0xA0;
     ANSELA = 0x11;
 
     /**
@@ -97,8 +98,8 @@ void PIN_MANAGER_Initialize(void)
     IOCCFbits.IOCCF2 = 0;
     IOCCFbits.IOCCF3 = 0;
     // interrupt on change for group IOCCN - negative
-    IOCCNbits.IOCCN2 = 1;
-    IOCCNbits.IOCCN3 = 1;
+    IOCCNbits.IOCCN2 = 0;
+    IOCCNbits.IOCCN3 = 0;
     // interrupt on change for group IOCCP - positive
     IOCCPbits.IOCCP2 = 1;
     IOCCPbits.IOCCP3 = 1;
@@ -117,12 +118,10 @@ void PIN_MANAGER_Initialize(void)
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
-    RXPPS = 0x0D;   //RB5->EUSART:RX;
+    SSPCLKPPS = 0x0E;   //RB6->MSSP:SCL;
     SSPDATPPS = 0x0C;   //RB4->MSSP:SDA;
     RB6PPS = 0x10;   //RB6->MSSP:SCL;
-    RB7PPS = 0x12;   //RB7->EUSART:TX;
     RB4PPS = 0x11;   //RB4->MSSP:SDA;
-    SSPCLKPPS = 0x0E;   //RB6->MSSP:SCL;
 
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;

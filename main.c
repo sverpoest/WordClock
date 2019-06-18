@@ -46,7 +46,6 @@
 #include "mcc_generated_files/mcc.h"
 #include "main.h"
 #include "LEDArray.h"
-#include "bluetooth.h"
 #include "clock.h"
 #include "accelerometer.h"
 #include "lib.h"
@@ -72,22 +71,15 @@ typedef enum
 {
     ACTION_NONE,
     ACTION_GETTIME,
-    ACTION_GETTIME_BT,
     ACTION_SETTIME
 } ACTION;
 
 typedef enum
 {
     STATE_RUNNING,
-    STATE_BTSETTIME,
-    STATE_SMS,
-    STATE_LOCATING,
-    STATE_BT,
             
-    STATE_SET_START,
     STATE_SET_HOURS,
-    STATE_SET_ON,
-    STATE_SET_OFF
+    STATE_SET_MINS
 } CLOCK_STATE;
 
 void main(void)
@@ -125,30 +117,57 @@ void main(void)
     
     TMR1_SetInterruptHandler(Tick);
     
-    //IOCCF2_SetInterruptHandler(SetTime);
+    IOCCF2_SetInterruptHandler(TapTime);
     IOCCF3_SetInterruptHandler(SetTurn);
     
     uint8_t i = 0;
+    uint8_t row = 0;
+    uint16_t mask = 0x0000;
     while (1)
     {
-        if(++i == 10 || DISPLAYBANK_row[i] == -1)
+        row = DISPLAYBANK_row[++i];
+        if(i == 10 || row == 0xFF)
+        {
             i = 0;
+            row = DISPLAYBANK_row[i];
+        }
         
         if(blank)
-            LED_Row(0x00, 0xFFFF);
+        {
+            if(mainState == STATE_SET_HOURS)
+            {
+                if(row < 4)
+                    mask = 0x0000;
+                else if(row == 4)
+                    mask = 0x0780;
+                else if(row == 9)
+                    mask = 0x0007;
+                else
+                    mask = 0xFFFF;
+            }
+            else
+            {
+                if(row >= 0 && row < 4)
+                    mask = 0xFFFF;
+                else if(row == 4)
+                    mask = 0x000F;
+                else if(row == 9)
+                    mask = 0x07E0;
+                else
+                    mask = 0x0000;
+            }
+        }
         else
-            LED_Row(DISPLAYBANK_row[i], DISPLAYBANK_col[i]);
+            mask = 0x0000;
+        LED_Row(row, DISPLAYBANK_col[i] | mask);
         
         switch(action)
         {
             case ACTION_GETTIME:
                 Clock_Display(true);
                 break;
-            case ACTION_GETTIME_BT:
-                Bluetooth_GetTime();
-                break;
             case ACTION_SETTIME:
-                Clock_SetTime(localHour, localMins);
+                Clock_Write();
                 break;
             default:
                 break;
@@ -160,78 +179,49 @@ void main(void)
 
 void Tick(void)
 {
+    if(action > 0)
+        return;
+    
     switch(mainState)
     {
         case STATE_RUNNING:
-            if((tick % (3600 * SECOND_MULTIPLIER)) == 0)
-                action = ACTION_GETTIME_BT;
-            else if((tick % (60 * SECOND_MULTIPLIER)) == 0)
+            if((tick % (10 * SECOND_MULTIPLIER)) == 0)
                 action = ACTION_GETTIME;
             tick++;
             break;
-        case STATE_BTSETTIME:
-            action = ACTION_SETTIME;
-            mainState = STATE_RUNNING;
-            break;
-        case STATE_SMS:
-        case STATE_LOCATING:
+        case STATE_SET_MINS:
             blank = (secondaryTick++ & 0x1);
-            if(secondaryTick == 15)
+            if(secondaryTick == 41)
             {
-                action = ACTION_GETTIME;
-                mainState = STATE_RUNNING;
+                secondaryTick = 0;
+                mainState = STATE_SET_HOURS;
             }
             break;
-        case STATE_BT:
+        case STATE_SET_HOURS:
             blank = (secondaryTick++ & 0x1);
-            if(secondaryTick == 15)
+            if(secondaryTick == 41)
             {
-                action = ACTION_GETTIME_BT;
+                action = ACTION_SETTIME;
                 mainState = STATE_RUNNING;
             }
             break;
     }
-    
-}
-
-void SetTime(uint8_t hour, uint8_t mins)
-{
-    if(mainState == STATE_RUNNING)
-        mainState = STATE_BTSETTIME;
-    localHour = hour;
-    localMins = mins;
-}
-
-void AlertSMS(void)
-{
-    secondaryTick = 0;
-    if(mainState == STATE_RUNNING)
-        mainState = STATE_SMS;
-    
-    LED_SMS();
-}
-
-void SetLocating(void)
-{
-    secondaryTick = 0;
-    if(mainState == STATE_RUNNING)
-        mainState = STATE_LOCATING;
-    
-    LED_Locating();
-}
-
-void SetBluetooth(void)
-{
-    secondaryTick = 0;
-    if(mainState == STATE_RUNNING)
-        mainState = STATE_BT;
-    
-    LED_Bluetooth();
 }
 
 void SetTurn(void)
 {
-    Bluetooth_FindPhone();
+    secondaryTick = 0;
+    action = 0;
+    mainState = STATE_SET_MINS;
+}
+
+void TapTime(void)
+{
+    if(mainState != STATE_SET_HOURS && mainState != STATE_SET_MINS)
+        return;
+    
+    secondaryTick &= 0x1;
+    Clock_Tap(mainState == STATE_SET_HOURS);
 }
 
 

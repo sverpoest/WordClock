@@ -12,14 +12,12 @@
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
         <itemPath>mcc_generated_files/i2c.h</itemPath>
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
-        <itemPath>mcc_generated_files/eusart.h</itemPath>
       </logicalFolder>
       <itemPath>main.h</itemPath>
       <itemPath>LEDArray.h</itemPath>
       <itemPath>clock.h</itemPath>
       <itemPath>lib.h</itemPath>
       <itemPath>accelerometer.h</itemPath>
-      <itemPath>bluetooth.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -36,14 +34,12 @@
         <itemPath>mcc_generated_files/i2c.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
-        <itemPath>mcc_generated_files/eusart.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>LEDArray.c</itemPath>
       <itemPath>clock.c</itemPath>
       <itemPath>lib.c</itemPath>
       <itemPath>accelerometer.c</itemPath>
-      <itemPath>bluetooth.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

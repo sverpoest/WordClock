@@ -14611,34 +14611,34 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 287 "mcc_generated_files/pin_manager.h"
+# 263 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 299
+# 275
 void PIN_MANAGER_IOC(void);
 
-# 312
+# 288
 void IOCCF2_ISR(void);
 
-# 335
+# 311
 void IOCCF2_SetInterruptHandler(void* InterruptHandler);
 
-# 359
+# 335
 extern void (*IOCCF2_InterruptHandler)(void);
 
-# 383
+# 359
 void IOCCF2_DefaultInterruptHandler(void);
 
-# 396
+# 372
 void IOCCF3_ISR(void);
 
-# 419
+# 395
 void IOCCF3_SetInterruptHandler(void* InterruptHandler);
 
-# 443
+# 419
 extern void (*IOCCF3_InterruptHandler)(void);
 
-# 467
+# 443
 void IOCCF3_DefaultInterruptHandler(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
@@ -14739,86 +14739,6 @@ void interrupt INTERRUPT_InterruptManager(void);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 77 "mcc_generated_files/eusart.h"
-extern volatile uint8_t eusartTxBufferRemaining;
-extern volatile uint8_t eusartRxCount;
-
-# 106
-void EUSART_Initialize(void);
-
-# 155
-uint8_t EUSART_Read(void);
-
-# 180
-void EUSART_Write(uint8_t txData);
-void EUSART_Write_Direct(uint8_t txData);
-
-# 202
-void EUSART_Transmit_ISR(void);
-
-# 223
-void EUSART_Receive_ISR(void);
 
 # 6 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stddef.h"
 typedef int ptrdiff_t;
@@ -14929,20 +14849,16 @@ extern void (*TMR1_InterruptHandler)(void);
 # 438
 void TMR1_DefaultInterruptHandler(void);
 
-# 71 "mcc_generated_files/mcc.h"
+# 70 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 84
+# 83
 void OSCILLATOR_Initialize(void);
 
 # 36 "main.h"
 void Tick (void);
+void TapTime(void);
 void SetTurn(void);
-
-void SetTime(uint8_t hour, uint8_t mins);
-void AlertSMS(void);
-void SetLocating(void);
-void SetBluetooth(void);
 
 # 10 "LEDArray.h"
 void LED_Initialize();
@@ -14952,29 +14868,16 @@ void LED_SMS(void);
 void LED_Locating(void);
 void LED_Bluetooth(void);
 
-# 10 "bluetooth.h"
-void Bluetooth_Initialize();
-void Bluetooth_StateStep();
-void Bluetooth_WriteCommand_MultiReceive(char s[], bool direct);
-void Bluetooth_WriteCommand(char s[], bool direct);
-void Bluetooth_Receive_ISR(void);
-bool Bluetooth_IsAOK();
-bool Bluetooth_IsRXString(char expected[], int8_t length);
-void Bluetooth_HandleMessage(void);
-void Bluetooth_GetTime(void);
-void Bluetooth_FindPhone(void);
-uint8_t Bluetooth_CharToInt(uint8_t character);
-
 # 9 "clock.h"
 void Clock_Initialize(bool start);
-void Clock_SetTime(uint8_t hourIn, uint8_t minsIn);
 void Clock_Display(bool fetchTime);
 void Clock_Write();
+void Clock_Read();
 void Clock_Tap(bool hours);
 
 # 9 "accelerometer.h"
 void Acc_Initialize();
-void AccRead();
+void Acc_ProcessClickSrc(bool hours);
 
 # 8 "lib.h"
 int8_t DISPLAYBANK_row[11] = { 1, 2, -1, 0, 0, 0, 0, 0, 0, 0 };
@@ -14988,7 +14891,7 @@ void Delay(uint8_t length);
 void I2CWrite(uint8_t *pdata, uint8_t length, uint16_t address);
 void I2CRead(uint8_t *pdata, uint8_t registerAddress, uint8_t length, uint16_t address);
 
-# 59 "main.c"
+# 58 "main.c"
 uint8_t mainState = 0;
 bool settingHours = 0;
 
@@ -15005,22 +14908,15 @@ typedef enum
 {
 ACTION_NONE,
 ACTION_GETTIME,
-ACTION_GETTIME_BT,
 ACTION_SETTIME
 } ACTION;
 
 typedef enum
 {
 STATE_RUNNING,
-STATE_BTSETTIME,
-STATE_SMS,
-STATE_LOCATING,
-STATE_BT,
 
-STATE_SET_START,
 STATE_SET_HOURS,
-STATE_SET_ON,
-STATE_SET_OFF
+STATE_SET_MINS
 } CLOCK_STATE;
 
 void main(void)
@@ -15034,38 +14930,73 @@ SYSTEM_Initialize();
 
 (INTCONbits.PEIE = 1);
 
-# 110
+# 102
 LED_Initialize();
 LED_Row(0x00, 0b1111111111111110);
 Delay(100);
 
-# 118
+# 110
 Clock_Initialize(1);
 LED_Row(0x00, 0b1111111111111011);
 Delay(100);
 
-# 131
+Acc_Initialize();
+LED_Row(0x00, 0b1111111111110111);
+Delay(100);
+
+TMR1_SetInterruptHandler(Tick);
+
+IOCCF2_SetInterruptHandler(TapTime);
+IOCCF3_SetInterruptHandler(SetTurn);
+
 uint8_t i = 0;
+uint8_t row = 0;
+uint16_t mask = 0x0000;
 while (1)
 {
-if(++i == 10 || DISPLAYBANK_row[i] == -1)
+row = DISPLAYBANK_row[++i];
+if(i == 10 || row == 0xFF)
+{
 i = 0;
+row = DISPLAYBANK_row[i];
+}
 
 if(blank)
-LED_Row(0x00, 0xFFFF);
+{
+if(mainState == STATE_SET_HOURS)
+{
+if(row < 4)
+mask = 0x0000;
+else if(row == 4)
+mask = 0x0780;
+else if(row == 9)
+mask = 0x0007;
 else
-LED_Row(DISPLAYBANK_row[i], DISPLAYBANK_col[i]);
+mask = 0xFFFF;
+}
+else
+{
+if(row >= 0 && row < 4)
+mask = 0xFFFF;
+else if(row == 4)
+mask = 0x000F;
+else if(row == 9)
+mask = 0x07E0;
+else
+mask = 0x0000;
+}
+}
+else
+mask = 0x0000;
+LED_Row(row, DISPLAYBANK_col[i] | mask);
 
 switch(action)
 {
 case ACTION_GETTIME:
 Clock_Display(1);
 break;
-case ACTION_GETTIME_BT:
-Bluetooth_GetTime();
-break;
 case ACTION_SETTIME:
-Clock_SetTime(localHour, localMins);
+Clock_Write();
 break;
 default:
 break;
@@ -15077,77 +15008,48 @@ action = 0;
 
 void Tick(void)
 {
+if(action > 0)
+return;
+
 switch(mainState)
 {
 case STATE_RUNNING:
-if((tick % (3600 * SECOND_MULTIPLIER)) == 0)
-action = ACTION_GETTIME_BT;
-else if((tick % (60 * SECOND_MULTIPLIER)) == 0)
+if((tick % (10 * SECOND_MULTIPLIER)) == 0)
 action = ACTION_GETTIME;
 tick++;
 break;
-case STATE_BTSETTIME:
+case STATE_SET_MINS:
+blank = (secondaryTick++ & 0x1);
+if(secondaryTick == 41)
+{
+secondaryTick = 0;
+mainState = STATE_SET_HOURS;
+}
+break;
+case STATE_SET_HOURS:
+blank = (secondaryTick++ & 0x1);
+if(secondaryTick == 41)
+{
 action = ACTION_SETTIME;
 mainState = STATE_RUNNING;
-break;
-case STATE_SMS:
-case STATE_LOCATING:
-blank = (secondaryTick++ & 0x1);
-if(secondaryTick == 15)
-{
-action = ACTION_GETTIME;
-mainState = STATE_RUNNING;
-}
-break;
-case STATE_BT:
-blank = (secondaryTick++ & 0x1);
-if(secondaryTick == 15)
-{
-action = ACTION_GETTIME_BT;
-mainState = STATE_RUNNING;
 }
 break;
 }
-
-}
-
-void SetTime(uint8_t hour, uint8_t mins)
-{
-if(mainState == STATE_RUNNING)
-mainState = STATE_BTSETTIME;
-localHour = hour;
-localMins = mins;
-}
-
-void AlertSMS(void)
-{
-secondaryTick = 0;
-if(mainState == STATE_RUNNING)
-mainState = STATE_SMS;
-
-LED_SMS();
-}
-
-void SetLocating(void)
-{
-secondaryTick = 0;
-if(mainState == STATE_RUNNING)
-mainState = STATE_LOCATING;
-
-LED_Locating();
-}
-
-void SetBluetooth(void)
-{
-secondaryTick = 0;
-if(mainState == STATE_RUNNING)
-mainState = STATE_BT;
-
-LED_Bluetooth();
 }
 
 void SetTurn(void)
 {
-Bluetooth_FindPhone();
+secondaryTick = 0;
+action = 0;
+mainState = STATE_SET_MINS;
+}
+
+void TapTime(void)
+{
+if(mainState != STATE_SET_HOURS && mainState != STATE_SET_MINS)
+return;
+
+secondaryTick &= 0x1;
+Clock_Tap(mainState == STATE_SET_HOURS);
 }
 

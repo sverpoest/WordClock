@@ -7,9 +7,9 @@
 #include "mcc_generated_files/mcc.h"
 
 void Clock_Initialize(bool start);
-void Clock_SetTime(uint8_t hourIn, uint8_t minsIn);
 void Clock_Display(bool fetchTime);
 void Clock_Write();
+void Clock_Read();
 void Clock_Tap(bool hours);
 
 #endif	/* _CLOCK_H */

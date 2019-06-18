@@ -28,17 +28,18 @@ S_MASTER_NOACK_STOP 9
 S_MASTER_SEND_ADDR_10BIT_LSB 10
 S_MASTER_10BIT_RESTART 11
 ]
-"137 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
-[e E12149 . `uc
+"138 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+[e E12150 . `uc
 STATE_RUNNING 0
 STATE_SET_HOURS 1
 STATE_SET_MINS 2
 ]
-"164
+"165
 [e E12144 . `uc
 ACTION_NONE 0
 ACTION_GETTIME 1
 ACTION_SETTIME 2
+ACTION_READ_TAP 3
 ]
 "58 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\LEDArray.c
 [e E12012 . `uc
@@ -70,7 +71,7 @@ I2C_MESSAGE_ADDRESS_NO_ACK 4
 I2C_DATA_NO_ACK 5
 I2C_LOST_STATE 6
 ]
-"16 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\accelerometer.c
+"17 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\accelerometer.c
 [e E12012 . `uc
 I2C_MESSAGE_COMPLETE 0
 I2C_MESSAGE_FAIL 1
@@ -80,8 +81,10 @@ I2C_MESSAGE_ADDRESS_NO_ACK 4
 I2C_DATA_NO_ACK 5
 I2C_LOST_STATE 6
 ]
-"13
+"14
 [v _Acc_Initialize Acc_Initialize `(v  1 e 1 0 ]
+"51
+[v _Acc_ProcessClickSrc Acc_ProcessClickSrc `(v  1 e 1 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -94,17 +97,14 @@ I2C_LOST_STATE 6
 [v _Clock_Initialize Clock_Initialize `(v  1 e 1 0 ]
 "66
 [v _IncHour IncHour `(uc  1 e 1 0 ]
-[v i1_IncHour IncHour `(uc  1 e 1 0 ]
 "76
 [v _Clock_Tap Clock_Tap `(v  1 e 1 0 ]
 "93
 [v _Clock_Write Clock_Write `(v  1 e 1 0 ]
 "105
 [v _Clock_Read Clock_Read `(v  1 e 1 0 ]
-[v i1_Clock_Read Clock_Read `(v  1 e 1 0 ]
 "115
 [v _Clock_Display Clock_Display `(v  1 e 1 0 ]
-[v i1_Clock_Display Clock_Display `(v  1 e 1 0 ]
 "18 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\LEDArray.c
 [v _LED_Row LED_Row `(v  1 e 1 0 ]
 "55
@@ -115,14 +115,13 @@ I2C_LOST_STATE 6
 [v _I2CWrite I2CWrite `(v  1 e 1 0 ]
 "35
 [v _I2CRead I2CRead `(v  1 e 1 0 ]
-[v i1_I2CRead I2CRead `(v  1 e 1 0 ]
-"85 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+"86 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
 [v _main main `(v  1 e 1 0 ]
-"180
+"184
 [v _Tick Tick `(v  1 e 1 0 ]
-"211
+"215
 [v _SetTurn SetTurn `(v  1 e 1 0 ]
-"218
+"222
 [v _TapTime TapTime `(v  1 e 1 0 ]
 "198 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
 [v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
@@ -136,13 +135,10 @@ I2C_LOST_STATE 6
 [v _I2C_MasterWrite I2C_MasterWrite `(v  1 e 1 0 ]
 "641
 [v _I2C_MasterTRBInsert I2C_MasterTRBInsert `(v  1 e 1 0 ]
-[v i1_I2C_MasterTRBInsert I2C_MasterTRBInsert `(v  1 e 1 0 ]
 "694
 [v _I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
-[v i1_I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
 "707
 [v _I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
-[v i1_I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
 "728
 [v _I2C_BusCollisionISR I2C_BusCollisionISR `(v  1 e 1 0 ]
 "51 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/interrupt_manager.c
@@ -448,10 +444,10 @@ I2C_LOST_STATE 6
 [v _secondaryTick secondaryTick `uc  1 e 1 0 ]
 "68
 [v _SECOND_MULTIPLIER SECOND_MULTIPLIER `uc  1 e 1 0 ]
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "184 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
-[s S293 . 4 `uc 1 count 1 0 `*.4S281 1 ptrb_list 1 1 `*.39E11987 1 pTrFlag 2 2 ]
-[v _i2c_tr_queue i2c_tr_queue `[1]S293  1 s 4 i2c_tr_queue ]
+[s S293 . 3 `uc 1 count 1 0 `*.4S281 1 ptrb_list 1 1 `*.4E11987 1 pTrFlag 1 2 ]
+[v _i2c_tr_queue i2c_tr_queue `[1]S293  1 s 3 i2c_tr_queue ]
 "185
 [s S297 . 1 `uc 1 full 1 0 :1:0 
 `uc 1 empty 1 0 :1:1 
@@ -476,16 +472,16 @@ I2C_LOST_STATE 6
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "57
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"85 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+"86 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"126
+[v main@mask mask `ui  1 a 2 0 ]
 "125
-[v main@mask mask `ui  1 a 2 17 ]
+[v main@row row `uc  1 a 1 3 ]
 "124
-[v main@row row `uc  1 a 1 20 ]
-"123
-[v main@i i `uc  1 a 1 19 ]
-"178
+[v main@i i `uc  1 a 1 2 ]
+"182
 } 0
 "76 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -505,26 +501,26 @@ I2C_LOST_STATE 6
 "185
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 0 ]
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 1 ]
 "187
 } 0
 "54 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "114
-[v PIN_MANAGER_Initialize@state state `uc  1 a 1 27 ]
+[v PIN_MANAGER_Initialize@state state `uc  1 a 1 3 ]
 "130
 } 0
 "197
 [v _IOCCF3_SetInterruptHandler IOCCF3_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCCF3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 0 ]
+[v IOCCF3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 1 ]
 "199
 } 0
 "167
 [v _IOCCF2_SetInterruptHandler IOCCF2_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCCF2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 0 ]
+[v IOCCF2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 1 ]
 "169
 } 0
 "85 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/mcc.c
@@ -542,30 +538,30 @@ I2C_LOST_STATE 6
 {
 [v LED_Row@row row `uc  1 a 1 wreg ]
 "20
-[v LED_Row@writeBuffer writeBuffer `[3]uc  1 a 3 29 ]
+[v LED_Row@writeBuffer writeBuffer `[3]uc  1 a 3 28 ]
 "18
 [v LED_Row@row row `uc  1 a 1 wreg ]
-[v LED_Row@mask mask `ui  1 p 2 25 ]
+[v LED_Row@mask mask `ui  1 p 2 24 ]
 "23
-[v LED_Row@row row `uc  1 a 1 32 ]
+[v LED_Row@row row `uc  1 a 1 31 ]
 "53
 } 0
 "55
 [v _LED_Initialize LED_Initialize `(v  1 e 1 0 ]
 {
 "57
-[v LED_Initialize@writeBuffer writeBuffer `[3]uc  1 a 3 27 ]
+[v LED_Initialize@writeBuffer writeBuffer `[3]uc  1 a 3 26 ]
 "58
-[v LED_Initialize@status status `E12012  1 a 1 26 ]
+[v LED_Initialize@status status `E12012  1 a 1 25 ]
 "68
 } 0
 "93 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\clock.c
 [v _Clock_Write Clock_Write `(v  1 e 1 0 ]
 {
 "95
-[v Clock_Write@writeBuffer writeBuffer `[4]uc  1 a 4 27 ]
+[v Clock_Write@writeBuffer writeBuffer `[4]uc  1 a 4 26 ]
 "96
-[v Clock_Write@status status `E12012  1 a 1 26 ]
+[v Clock_Write@status status `E12012  1 a 1 25 ]
 "103
 } 0
 "39
@@ -573,13 +569,13 @@ I2C_LOST_STATE 6
 {
 [v Clock_Initialize@start start `uc  1 a 1 wreg ]
 "41
-[v Clock_Initialize@writeBuffer writeBuffer `[5]uc  1 a 5 2 ]
+[v Clock_Initialize@writeBuffer writeBuffer `[5]uc  1 a 5 32 ]
 "42
-[v Clock_Initialize@status status `E12012  1 a 1 0 ]
+[v Clock_Initialize@status status `E12012  1 a 1 30 ]
 "39
 [v Clock_Initialize@start start `uc  1 a 1 wreg ]
 "42
-[v Clock_Initialize@start start `uc  1 a 1 1 ]
+[v Clock_Initialize@start start `uc  1 a 1 31 ]
 "64
 } 0
 "11 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\lib.c
@@ -587,26 +583,47 @@ I2C_LOST_STATE 6
 {
 [v Delay@length length `uc  1 a 1 wreg ]
 "12
-[v Delay@i i `uc  1 a 1 1 ]
+[v Delay@i i `uc  1 a 1 3 ]
 "11
 [v Delay@length length `uc  1 a 1 wreg ]
-[v Delay@length length `uc  1 a 1 0 ]
+[v Delay@length length `uc  1 a 1 2 ]
 "15
 } 0
-"115 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\clock.c
+"51 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\accelerometer.c
+[v _Acc_ProcessClickSrc Acc_ProcessClickSrc `(v  1 e 1 0 ]
+{
+[v Acc_ProcessClickSrc@hours hours `uc  1 a 1 wreg ]
+"53
+[v Acc_ProcessClickSrc@dataBuffer dataBuffer `[6]uc  1 a 6 37 ]
+"51
+[v Acc_ProcessClickSrc@hours hours `uc  1 a 1 wreg ]
+"54
+[v Acc_ProcessClickSrc@hours hours `uc  1 a 1 43 ]
+"58
+} 0
+"76 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\clock.c
+[v _Clock_Tap Clock_Tap `(v  1 e 1 0 ]
+{
+[v Clock_Tap@hours hours `uc  1 a 1 wreg ]
+[v Clock_Tap@hours hours `uc  1 a 1 wreg ]
+"78
+[v Clock_Tap@hours hours `uc  1 a 1 35 ]
+"91
+} 0
+"115
 [v _Clock_Display Clock_Display `(v  1 e 1 0 ]
 {
 [v Clock_Display@fetchTime fetchTime `uc  1 a 1 wreg ]
 "120
-[v Clock_Display@row row `*.4c  1 a 1 35 ]
+[v Clock_Display@row row `*.4c  1 a 1 33 ]
 "121
-[v Clock_Display@col col `*.5ui  1 a 1 34 ]
+[v Clock_Display@col col `*.4ui  1 a 1 32 ]
 "126
-[v Clock_Display@hourDisplay hourDisplay `uc  1 a 1 33 ]
+[v Clock_Display@hourDisplay hourDisplay `uc  1 a 1 31 ]
 "115
 [v Clock_Display@fetchTime fetchTime `uc  1 a 1 wreg ]
 "117
-[v Clock_Display@fetchTime fetchTime `uc  1 a 1 32 ]
+[v Clock_Display@fetchTime fetchTime `uc  1 a 1 30 ]
 "261
 } 0
 "66
@@ -615,94 +632,103 @@ I2C_LOST_STATE 6
 [v IncHour@in in `uc  1 a 1 wreg ]
 [v IncHour@in in `uc  1 a 1 wreg ]
 "68
-[v IncHour@in in `uc  1 a 1 27 ]
+[v IncHour@in in `uc  1 a 1 1 ]
 "74
 } 0
 "105
 [v _Clock_Read Clock_Read `(v  1 e 1 0 ]
 {
 "107
-[v Clock_Read@dataBuffer dataBuffer `[3]uc  1 a 3 28 ]
+[v Clock_Read@dataBuffer dataBuffer `[3]uc  1 a 3 26 ]
 "113
 } 0
-"13 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\accelerometer.c
+"14 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\accelerometer.c
 [v _Acc_Initialize Acc_Initialize `(v  1 e 1 0 ]
 {
-"15
-[v Acc_Initialize@writeBuffer writeBuffer `[8]uc  1 a 8 7 ]
-"27
-[v Acc_Initialize@dataBuffer dataBuffer `[6]uc  1 a 6 0 ]
 "16
-[v Acc_Initialize@status status `E12012  1 a 1 6 ]
-"48
+[v Acc_Initialize@writeBuffer writeBuffer `[7]uc  1 a 7 33 ]
+"28
+[v Acc_Initialize@dataBuffer dataBuffer `[6]uc  1 a 6 26 ]
+"17
+[v Acc_Initialize@status status `E12012  1 a 1 32 ]
+"49
 } 0
 "17 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\lib.c
 [v _I2CWrite I2CWrite `(v  1 e 1 0 ]
 {
+[v I2CWrite@pdata pdata `*.4uc  1 a 1 wreg ]
 "23
-[v I2CWrite@i i `i  1 a 2 22 ]
+[v I2CWrite@i i `i  1 a 2 20 ]
 "21
-[v I2CWrite@status status `E12012  1 a 1 24 ]
+[v I2CWrite@status status `E12012  1 a 1 23 ]
 "17
-[v I2CWrite@pdata pdata `*.39uc  1 p 2 15 ]
+[v I2CWrite@pdata pdata `*.4uc  1 a 1 wreg ]
 "18
-[v I2CWrite@length length `uc  1 p 1 17 ]
+[v I2CWrite@length length `uc  1 p 1 15 ]
 "19
-[v I2CWrite@address address `ui  1 p 2 18 ]
+[v I2CWrite@address address `ui  1 p 2 16 ]
+"21
+[v I2CWrite@pdata pdata `*.4uc  1 a 1 22 ]
 "33
 } 0
 "598 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
 [v _I2C_MasterWrite I2C_MasterWrite `(v  1 e 1 0 ]
 {
 "599
-[v I2C_MasterWrite@pdata pdata `*.39uc  1 p 2 7 ]
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 wreg ]
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 wreg ]
 "600
-[v I2C_MasterWrite@length length `uc  1 p 1 9 ]
+[v I2C_MasterWrite@length length `uc  1 p 1 8 ]
 "601
-[v I2C_MasterWrite@address address `ui  1 p 2 10 ]
+[v I2C_MasterWrite@address address `ui  1 p 2 9 ]
 "602
-[v I2C_MasterWrite@pflag pflag `*.4E11987  1 p 1 12 ]
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[v I2C_MasterWrite@pflag pflag `*.4E11987  1 p 1 11 ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "604
-[v I2C_MasterWrite@trBlock trBlock `S281  1 s 5 trBlock ]
+[v I2C_MasterWrite@trBlock trBlock `S281  1 s 4 trBlock ]
+"607
+[v I2C_MasterWrite@pdata pdata `*.4uc  1 a 1 14 ]
 "617
 } 0
 "35 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\lib.c
 [v _I2CRead I2CRead `(v  1 e 1 0 ]
 {
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[v I2CRead@pdata pdata `*.4uc  1 a 1 wreg ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "41
-[v I2CRead@readTRB readTRB `[2]S281  1 a 10 16 ]
+[v I2CRead@readTRB readTRB `[2]S281  1 a 8 16 ]
 "40
-[v I2CRead@status status `E12012  1 a 1 26 ]
+[v I2CRead@status status `E12012  1 a 1 24 ]
 "42
 [v I2CRead@readBuffer readBuffer `[1]uc  1 a 1 15 ]
 "35
-[v I2CRead@pdata pdata `*.39uc  1 p 2 7 ]
+[v I2CRead@pdata pdata `*.4uc  1 a 1 wreg ]
 "36
-[v I2CRead@registerAddress registerAddress `uc  1 p 1 9 ]
+[v I2CRead@registerAddress registerAddress `uc  1 p 1 8 ]
 "37
-[v I2CRead@length length `uc  1 p 1 10 ]
+[v I2CRead@length length `uc  1 p 1 9 ]
 "38
-[v I2CRead@address address `ui  1 p 2 11 ]
+[v I2CRead@address address `ui  1 p 2 10 ]
+"40
+[v I2CRead@pdata pdata `*.4uc  1 a 1 14 ]
 "66
 } 0
 "707 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
 [v _I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
 {
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "708
 [v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
 [v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
 "709
-[v I2C_MasterWriteTRBBuild@pdata pdata `*.39uc  1 p 2 0 ]
+[v I2C_MasterWriteTRBBuild@pdata pdata `*.4uc  1 p 1 1 ]
 "710
 [v I2C_MasterWriteTRBBuild@length length `uc  1 p 1 2 ]
 "711
 [v I2C_MasterWriteTRBBuild@address address `ui  1 p 2 3 ]
 "713
 "708
-[v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 27 ]
+[v I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 7 ]
 "716
 } 0
 "641
@@ -711,31 +737,31 @@ I2C_LOST_STATE 6
 "642
 [v I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
 [v I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "643
-[v I2C_MasterTRBInsert@ptrb_list ptrb_list `*.4S281  1 p 1 0 ]
+[v I2C_MasterTRBInsert@ptrb_list ptrb_list `*.4S281  1 p 1 1 ]
 "644
-[v I2C_MasterTRBInsert@pflag pflag `*.4E11987  1 p 1 1 ]
+[v I2C_MasterTRBInsert@pflag pflag `*.4E11987  1 p 1 2 ]
 "648
-[v I2C_MasterTRBInsert@count count `uc  1 a 1 2 ]
+[v I2C_MasterTRBInsert@count count `uc  1 a 1 4 ]
 "692
 } 0
 "694
 [v _I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
 {
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S281 . 4 `ui 1 address 2 0 `uc 1 length 1 2 `*.4uc 1 pbuffer 1 3 ]
 "695
 [v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
 [v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
 "696
-[v I2C_MasterReadTRBBuild@pdata pdata `*.39uc  1 p 2 0 ]
+[v I2C_MasterReadTRBBuild@pdata pdata `*.4uc  1 p 1 1 ]
 "697
 [v I2C_MasterReadTRBBuild@length length `uc  1 p 1 2 ]
 "698
 [v I2C_MasterReadTRBBuild@address address `ui  1 p 2 3 ]
 "700
 "695
-[v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 27 ]
+[v I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 7 ]
 "705
 } 0
 "51 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/interrupt_manager.c
@@ -760,10 +786,10 @@ I2C_LOST_STATE 6
 {
 "192
 } 0
-"180 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+"184 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
 [v _Tick Tick `(v  1 e 1 0 ]
 {
-"209
+"213
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -800,10 +826,10 @@ I2C_LOST_STATE 6
 {
 "207
 } 0
-"211 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+"215 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
 [v _SetTurn SetTurn `(v  1 e 1 0 ]
 {
-"216
+"220
 } 0
 "152 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/pin_manager.c
 [v _IOCCF2_ISR IOCCF2_ISR `(v  1 e 1 0 ]
@@ -815,119 +841,16 @@ I2C_LOST_STATE 6
 {
 "177
 } 0
-"218 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
+"222 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\main.c
 [v _TapTime TapTime `(v  1 e 1 0 ]
 {
-"225
+"229
 } 0
-"76 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\clock.c
-[v _Clock_Tap Clock_Tap `(v  1 e 1 0 ]
-{
-[v Clock_Tap@hours hours `uc  1 a 1 wreg ]
-[v Clock_Tap@hours hours `uc  1 a 1 wreg ]
-"78
-[v Clock_Tap@hours hours `uc  1 a 1 24 ]
-"91
-} 0
-"115
-[v i1_Clock_Display Clock_Display `(v  1 e 1 0 ]
-{
-[v i1Clock_Display@fetchTime fetchTime `uc  1 a 1 wreg ]
-[v i1Clock_Display@row Clock_Display `*.4c  1 a 1 22 ]
-[v i1Clock_Display@col Clock_Display `*.5ui  1 a 1 21 ]
-[v i1Clock_Display@hourDisplay Clock_Display `uc  1 a 1 20 ]
-[v i1Clock_Display@fetchTime fetchTime `uc  1 a 1 wreg ]
-"117
-[v i1Clock_Display@fetchTime fetchTime `uc  1 a 1 19 ]
-"261
-} 0
-"66
-[v i1_IncHour IncHour `(uc  1 e 1 0 ]
-{
-[v i1IncHour@in in `uc  1 a 1 wreg ]
-[v i1IncHour@in in `uc  1 a 1 wreg ]
-"68
-[v i1IncHour@in in `uc  1 a 1 0 ]
-"74
-} 0
-"105
-[v i1_Clock_Read Clock_Read `(v  1 e 1 0 ]
-{
-[v i1Clock_Read@dataBuffer Clock_Read `[3]uc  1 a 3 15 ]
-"113
-} 0
-"35 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\lib.c
-[v i1_I2CRead I2CRead `(v  1 e 1 0 ]
-{
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
-[v i1I2CRead@readTRB I2CRead `[2]S281  1 a 10 2 ]
-[v i1I2CRead@status I2CRead `E12012  1 a 1 13 ]
-[v i1I2CRead@readBuffer I2CRead `[1]uc  1 a 1 12 ]
-[v i1I2CRead@pdata pdata `*.39uc  1 p 2 8 ]
-"36
-[v i1I2CRead@registerAddress registerAddress `uc  1 p 1 10 ]
-"37
-[v i1I2CRead@length length `uc  1 p 1 11 ]
-"38
-[v i1I2CRead@address address `ui  1 p 2 12 ]
-"66
-} 0
-"707 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
-[v i1_I2C_MasterWriteTRBBuild I2C_MasterWriteTRBBuild `(v  1 e 1 0 ]
-{
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
-"708
-[v i1I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
-[v i1I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
-"709
-[v i1I2C_MasterWriteTRBBuild@pdata pdata `*.39uc  1 p 2 0 ]
-"710
-[v i1I2C_MasterWriteTRBBuild@length length `uc  1 p 1 2 ]
-"711
-[v i1I2C_MasterWriteTRBBuild@address address `ui  1 p 2 3 ]
-"713
-"708
-[v i1I2C_MasterWriteTRBBuild@ptrb ptrb `*.4S281  1 a 1 7 ]
-"716
-} 0
-"641
-[v i1_I2C_MasterTRBInsert I2C_MasterTRBInsert `(v  1 e 1 0 ]
-{
-"642
-[v i1I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
-[v i1I2C_MasterTRBInsert@count count `uc  1 a 1 wreg ]
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
-"643
-[v i1I2C_MasterTRBInsert@ptrb_list ptrb_list `*.4S281  1 p 1 0 ]
-"644
-[v i1I2C_MasterTRBInsert@pflag pflag `*.4E11987  1 p 1 1 ]
-"648
-[v i1I2C_MasterTRBInsert@count count `uc  1 a 1 3 ]
-"692
-} 0
-"694
-[v i1_I2C_MasterReadTRBBuild I2C_MasterReadTRBBuild `(v  1 e 1 0 ]
-{
-[s S281 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
-"695
-[v i1I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
-[v i1I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 wreg ]
-"696
-[v i1I2C_MasterReadTRBBuild@pdata pdata `*.39uc  1 p 2 0 ]
-"697
-[v i1I2C_MasterReadTRBBuild@length length `uc  1 p 1 2 ]
-"698
-[v i1I2C_MasterReadTRBBuild@address address `ui  1 p 2 3 ]
-"700
-"695
-[v i1I2C_MasterReadTRBBuild@ptrb ptrb `*.4S281  1 a 1 7 ]
-"705
-} 0
-"233
+"233 C:\Users\sebastiaan.verpoest\MPLABXProjects\WordClockNoBT\mcc_generated_files/i2c.c
 [v _I2C_ISR I2C_ISR `(v  1 e 1 0 ]
 {
 "236
-[v I2C_ISR@pi2c_buf_ptr pi2c_buf_ptr `*.39uc  1 s 2 pi2c_buf_ptr ]
+[v I2C_ISR@pi2c_buf_ptr pi2c_buf_ptr `*.4uc  1 s 1 pi2c_buf_ptr ]
 "237
 [v I2C_ISR@i2c_address i2c_address `ui  1 s 2 i2c_address ]
 "238
@@ -942,7 +865,7 @@ I2C_LOST_STATE 6
 [v I2C_Stop@completion_code completion_code `E11987  1 a 1 wreg ]
 [v I2C_Stop@completion_code completion_code `E11987  1 a 1 wreg ]
 "584
-[v I2C_Stop@completion_code completion_code `E11987  1 a 1 2 ]
+[v I2C_Stop@completion_code completion_code `E11987  1 a 1 1 ]
 "596
 } 0
 "563

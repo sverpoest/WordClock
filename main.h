@@ -34,11 +34,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 void Tick (void);
+void TapTime(void);
 void SetTurn(void);
-
-void SetTime(uint8_t hour, uint8_t mins);
-void AlertSMS(void);
-void SetLocating(void);
-void SetBluetooth(void);
 
 #endif	/* MAINHEADER_H */

@@ -2,8 +2,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "16 lib.h
 [v _I2CWrite `(v ~T0 @X0 0 ef3`*uc`uc`ui ]
 "58 LEDArray.c
-[c E12087 0 1 2 3 4 5 6 .. ]
-[n E12087 . I2C_MESSAGE_COMPLETE I2C_MESSAGE_FAIL I2C_MESSAGE_PENDING I2C_STUCK_START I2C_MESSAGE_ADDRESS_NO_ACK I2C_DATA_NO_ACK I2C_LOST_STATE  ]
+[c E12012 0 1 2 3 4 5 6 .. ]
+[n E12012 . I2C_MESSAGE_COMPLETE I2C_MESSAGE_FAIL I2C_MESSAGE_PENDING I2C_STUCK_START I2C_MESSAGE_ADDRESS_NO_ACK I2C_DATA_NO_ACK I2C_LOST_STATE  ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10764,16 +10764,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;pin_manager.h: 287: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 299: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 312: void IOCCF2_ISR(void);
-[; ;pin_manager.h: 335: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 359: extern void (*IOCCF2_InterruptHandler)(void);
-[; ;pin_manager.h: 383: void IOCCF2_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 396: void IOCCF3_ISR(void);
-[; ;pin_manager.h: 419: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 443: extern void (*IOCCF3_InterruptHandler)(void);
-[; ;pin_manager.h: 467: void IOCCF3_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 263: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 275: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 288: void IOCCF2_ISR(void);
+[; ;pin_manager.h: 311: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 335: extern void (*IOCCF2_InterruptHandler)(void);
+[; ;pin_manager.h: 359: void IOCCF2_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 372: void IOCCF3_ISR(void);
+[; ;pin_manager.h: 395: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 419: extern void (*IOCCF3_InterruptHandler)(void);
+[; ;pin_manager.h: 443: void IOCCF3_DefaultInterruptHandler(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10805,43 +10805,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 181: void EUSART_Write_Direct(uint8_t txData);
-[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
 [; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;i2c.h: 83: typedef enum
 [; ;i2c.h: 84: {
@@ -10901,8 +10864,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void *InterruptHandler);
 [; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 70: void SYSTEM_Initialize(void);
+[; ;mcc.h: 83: void OSCILLATOR_Initialize(void);
 [; ;LEDArray.h: 10: void LED_Initialize();
 [; ;LEDArray.h: 11: void LED_Row(uint8_t row, uint16_t mask);
 [; ;LEDArray.h: 13: void LED_SMS(void);
@@ -10992,7 +10955,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LEDArray.c: 20: uint8_t writeBuffer[3];
 [; ;LEDArray.c: 23: if(row != prevRow)
 "23
-[e $ ! != -> _row `i -> _prevRow `i 1214  ]
+[e $ ! != -> _row `i -> _prevRow `i 1213  ]
 [; ;LEDArray.c: 24: {
 "24
 {
@@ -11007,7 +10970,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 2 `i `uc -> -> 33 `i `ui ]
 "28
 }
-[e :U 1214 ]
+[e :U 1213 ]
 [; ;LEDArray.c: 28: }
 [; ;LEDArray.c: 31: writeBuffer[0] = 0x00;
 "31
@@ -11023,13 +10986,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 3 `i `uc -> -> 32 `i `ui ]
 [; ;LEDArray.c: 36: if(row != prevRow)
 "36
-[e $ ! != -> _row `i -> _prevRow `i 1215  ]
+[e $ ! != -> _row `i -> _prevRow `i 1214  ]
 [; ;LEDArray.c: 37: {
 "37
 {
 [; ;LEDArray.c: 38: if(row > 7)
 "38
-[e $ ! > -> _row `i -> 7 `i 1216  ]
+[e $ ! > -> _row `i -> 7 `i 1215  ]
 [; ;LEDArray.c: 39: {
 "39
 {
@@ -11042,9 +11005,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 }
 [; ;LEDArray.c: 42: }
-[e $U 1217  ]
+[e $U 1216  ]
 "43
-[e :U 1216 ]
+[e :U 1215 ]
 [; ;LEDArray.c: 43: else
 [; ;LEDArray.c: 44: {
 "44
@@ -11057,21 +11020,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> - -> 255 `i << -> 1 `i _row `uc ]
 "47
 }
-[e :U 1217 ]
+[e :U 1216 ]
 [; ;LEDArray.c: 47: }
 [; ;LEDArray.c: 48: I2CWrite(writeBuffer, 2, 0b0100001);
 "48
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 2 `i `uc -> -> 33 `i `ui ]
 "49
 }
-[e :U 1215 ]
+[e :U 1214 ]
 [; ;LEDArray.c: 49: }
 [; ;LEDArray.c: 51: prevRow = row;
 "51
 [e = _prevRow _row ]
 [; ;LEDArray.c: 53: }
 "53
-[e :UE 1213 ]
+[e :UE 1212 ]
 }
 "55
 [v _LED_Initialize `(v ~T0 @X0 1 ef ]
@@ -11084,10 +11047,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "57
 [v _writeBuffer `uc ~T0 @X0 -> 3 `i a ]
 "58
-[v _status `E12087 ~T0 @X0 1 a ]
+[v _status `E12012 ~T0 @X0 1 a ]
 [; ;LEDArray.c: 57: uint8_t writeBuffer[3];
 [; ;LEDArray.c: 58: I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
-[e = _status . `E12087 2 ]
+[e = _status . `E12012 2 ]
 [; ;LEDArray.c: 60: writeBuffer[0] = 0x00;
 "60
 [e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
@@ -11111,206 +11074,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2CWrite (3 , , &U _writeBuffer -> -> 3 `i `uc -> -> 32 `i `ui ]
 [; ;LEDArray.c: 68: }
 "68
-[e :UE 1218 ]
-}
-"70
-[v _LED_SMS `(v ~T0 @X0 1 ef ]
-"71
-{
-[; ;LEDArray.c: 70: void LED_SMS()
-[; ;LEDArray.c: 71: {
-[e :U _LED_SMS ]
-[f ]
-"72
-[v _row `*c ~T0 @X0 1 a ]
-[; ;LEDArray.c: 72: int8_t* row = DISPLAYBANK_row;
-[e = _row &U _DISPLAYBANK_row ]
-"73
-[v _col `*ui ~T0 @X0 1 a ]
-[; ;LEDArray.c: 73: uint16_t* col = DISPLAYBANK_col;
-[e = _col &U _DISPLAYBANK_col ]
-[; ;LEDArray.c: 75: *(row++) = 1;
-"75
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 1 `i `c ]
-[; ;LEDArray.c: 76: *(col++) = 0x401;
-"76
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1025 `i `ui ]
-[; ;LEDArray.c: 77: *(row++) = 2;
-"77
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;LEDArray.c: 78: *(col++) = 0x4F9;
-"78
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1273 `i `ui ]
-[; ;LEDArray.c: 79: *(row++) = 3;
-"79
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;LEDArray.c: 80: *(col++) = 0x575;
-"80
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1397 `i `ui ]
-[; ;LEDArray.c: 81: *(row++) = 4;
-"81
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;LEDArray.c: 82: *(col++) = 0x58D;
-"82
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1421 `i `ui ]
-[; ;LEDArray.c: 83: *(row++) = 5;
-"83
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;LEDArray.c: 84: *(col++) = 0x5FD;
-"84
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1533 `i `ui ]
-[; ;LEDArray.c: 85: *(row++) = 6;
-"85
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;LEDArray.c: 86: *(col++) = 0x5FD;
-"86
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1533 `i `ui ]
-[; ;LEDArray.c: 87: *(row++) = 7;
-"87
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
-[; ;LEDArray.c: 88: *(col++) = 0x401;
-"88
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1025 `i `ui ]
-[; ;LEDArray.c: 90: *(row++) = -1;
-"90
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -U -> 1 `i `c ]
-[; ;LEDArray.c: 91: }
-"91
-[e :UE 1219 ]
-}
-"93
-[v _LED_Locating `(v ~T0 @X0 1 ef ]
-"94
-{
-[; ;LEDArray.c: 93: void LED_Locating(void)
-[; ;LEDArray.c: 94: {
-[e :U _LED_Locating ]
-[f ]
-"95
-[v _row `*c ~T0 @X0 1 a ]
-[; ;LEDArray.c: 95: int8_t* row = DISPLAYBANK_row;
-[e = _row &U _DISPLAYBANK_row ]
-"96
-[v _col `*ui ~T0 @X0 1 a ]
-[; ;LEDArray.c: 96: uint16_t* col = DISPLAYBANK_col;
-[e = _col &U _DISPLAYBANK_col ]
-[; ;LEDArray.c: 98: *(row++) = 1;
-"98
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 1 `i `c ]
-[; ;LEDArray.c: 99: *(col++) = 0x78F;
-"99
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1935 `i `ui ]
-[; ;LEDArray.c: 100: *(row++) = 2;
-"100
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;LEDArray.c: 101: *(col++) = 0x777;
-"101
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1911 `i `ui ]
-[; ;LEDArray.c: 102: *(row++) = 3;
-"102
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;LEDArray.c: 103: *(col++) = 0x77F;
-"103
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1919 `i `ui ]
-[; ;LEDArray.c: 104: *(row++) = 4;
-"104
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;LEDArray.c: 105: *(col++) = 0x7BF;
-"105
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1983 `i `ui ]
-[; ;LEDArray.c: 106: *(row++) = 5;
-"106
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;LEDArray.c: 107: *(col++) = 0x7DF;
-"107
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2015 `i `ui ]
-[; ;LEDArray.c: 108: *(row++) = 6;
-"108
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;LEDArray.c: 109: *(col++) = 0x7DF;
-"109
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2015 `i `ui ]
-[; ;LEDArray.c: 110: *(row++) = 8;
-"110
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
-[; ;LEDArray.c: 111: *(col++) = 0x7DF;
-"111
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 2015 `i `ui ]
-[; ;LEDArray.c: 113: *(row++) = -1;
-"113
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -U -> 1 `i `c ]
-[; ;LEDArray.c: 114: }
-"114
-[e :UE 1220 ]
-}
-"116
-[v _LED_Bluetooth `(v ~T0 @X0 1 ef ]
-"117
-{
-[; ;LEDArray.c: 116: void LED_Bluetooth(void)
-[; ;LEDArray.c: 117: {
-[e :U _LED_Bluetooth ]
-[f ]
-"118
-[v _row `*c ~T0 @X0 1 a ]
-[; ;LEDArray.c: 118: int8_t* row = DISPLAYBANK_row;
-[e = _row &U _DISPLAYBANK_row ]
-"119
-[v _col `*ui ~T0 @X0 1 a ]
-[; ;LEDArray.c: 119: uint16_t* col = DISPLAYBANK_col;
-[e = _col &U _DISPLAYBANK_col ]
-[; ;LEDArray.c: 121: *(row++) = 1;
-"121
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 1 `i `c ]
-[; ;LEDArray.c: 122: *(col++) = 0x79F;
-"122
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1951 `i `ui ]
-[; ;LEDArray.c: 123: *(row++) = 2;
-"123
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 2 `i `c ]
-[; ;LEDArray.c: 124: *(col++) = 0x75F;
-"124
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1887 `i `ui ]
-[; ;LEDArray.c: 125: *(row++) = 3;
-"125
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 3 `i `c ]
-[; ;LEDArray.c: 126: *(col++) = 0x757;
-"126
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1879 `i `ui ]
-[; ;LEDArray.c: 127: *(row++) = 4;
-"127
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 4 `i `c ]
-[; ;LEDArray.c: 128: *(col++) = 0x78F;
-"128
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1935 `i `ui ]
-[; ;LEDArray.c: 129: *(row++) = 5;
-"129
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 5 `i `c ]
-[; ;LEDArray.c: 130: *(col++) = 0x78F;
-"130
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1935 `i `ui ]
-[; ;LEDArray.c: 131: *(row++) = 6;
-"131
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 6 `i `c ]
-[; ;LEDArray.c: 132: *(col++) = 0x757;
-"132
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1879 `i `ui ]
-[; ;LEDArray.c: 133: *(row++) = 7;
-"133
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 7 `i `c ]
-[; ;LEDArray.c: 134: *(col++) = 0x75F;
-"134
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1887 `i `ui ]
-[; ;LEDArray.c: 135: *(row++) = 8;
-"135
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -> 8 `i `c ]
-[; ;LEDArray.c: 136: *(col++) = 0x79F;
-"136
-[e = *U ++ _col * -> -> 1 `i `x -> -> # *U _col `i `x -> -> 1951 `i `ui ]
-[; ;LEDArray.c: 138: *(row++) = -1;
-"138
-[e = *U ++ _row * -> -> 1 `i `x -> -> # *U _row `i `x -> -U -> 1 `i `c ]
-[; ;LEDArray.c: 139: }
-"139
-[e :UE 1221 ]
+[e :UE 1217 ]
 }

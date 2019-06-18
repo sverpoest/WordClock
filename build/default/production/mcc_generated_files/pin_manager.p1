@@ -66,13 +66,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S361 . . ]
 "7405
 [v _IOCCPbits `VS361 ~T0 @X0 0 e@919 ]
-"335 mcc_generated_files/pin_manager.h
+"311 mcc_generated_files/pin_manager.h
 [v _IOCCF2_SetInterruptHandler `(v ~T0 @X0 0 ef1`*v ]
-"383
+"359
 [v _IOCCF2_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
-"419
+"395
 [v _IOCCF3_SetInterruptHandler `(v ~T0 @X0 0 ef1`*v ]
-"467
+"443
 [v _IOCCF3_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "355 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f1619.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -97,21 +97,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S929 . . ]
 "21247
 [v _PPSLOCKbits `VS929 ~T0 @X0 0 e@3599 ]
-"22137
-[v _RXPPS `Vuc ~T0 @X0 0 e@3620 ]
+"21961
+[v _SSPCLKPPS `Vuc ~T0 @X0 0 e@3616 ]
 "22005
 [v _SSPDATPPS `Vuc ~T0 @X0 0 e@3617 ]
 "22929
 [v _RB6PPS `Vuc ~T0 @X0 0 e@3742 ]
-"22973
-[v _RB7PPS `Vuc ~T0 @X0 0 e@3743 ]
 "22841
 [v _RB4PPS `Vuc ~T0 @X0 0 e@3740 ]
-"21961
-[v _SSPCLKPPS `Vuc ~T0 @X0 0 e@3616 ]
-"312 mcc_generated_files/pin_manager.h
+"288 mcc_generated_files/pin_manager.h
 [v _IOCCF2_ISR `(v ~T0 @X0 0 ef ]
-"396
+"372
 [v _IOCCF3_ISR `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -10873,16 +10869,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;pin_manager.h: 287: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 299: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 312: void IOCCF2_ISR(void);
-[; ;pin_manager.h: 335: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 359: extern void (*IOCCF2_InterruptHandler)(void);
-[; ;pin_manager.h: 383: void IOCCF2_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 396: void IOCCF3_ISR(void);
-[; ;pin_manager.h: 419: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 443: extern void (*IOCCF3_InterruptHandler)(void);
-[; ;pin_manager.h: 467: void IOCCF3_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 263: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 275: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 288: void IOCCF2_ISR(void);
+[; ;pin_manager.h: 311: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 335: extern void (*IOCCF2_InterruptHandler)(void);
+[; ;pin_manager.h: 359: void IOCCF2_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 372: void IOCCF3_ISR(void);
+[; ;pin_manager.h: 395: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 419: extern void (*IOCCF3_InterruptHandler)(void);
+[; ;pin_manager.h: 443: void IOCCF3_DefaultInterruptHandler(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
 "51 mcc_generated_files/pin_manager.c
 [v _IOCCF2_InterruptHandler `*F11965 ~T0 @X0 1 e ]
@@ -10919,9 +10915,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 73: ANSELC = 0xC3;
 "73
 [e = _ANSELC -> -> 195 `i `uc ]
-[; ;pin_manager.c: 74: ANSELB = 0x80;
+[; ;pin_manager.c: 74: ANSELB = 0xA0;
 "74
-[e = _ANSELB -> -> 128 `i `uc ]
+[e = _ANSELB -> -> 160 `i `uc ]
 [; ;pin_manager.c: 75: ANSELA = 0x11;
 "75
 [e = _ANSELA -> -> 17 `i `uc ]
@@ -10952,12 +10948,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 98: IOCCFbits.IOCCF3 = 0;
 "98
 [e = . . _IOCCFbits 0 3 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 100: IOCCNbits.IOCCN2 = 1;
+[; ;pin_manager.c: 100: IOCCNbits.IOCCN2 = 0;
 "100
-[e = . . _IOCCNbits 0 2 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 101: IOCCNbits.IOCCN3 = 1;
+[e = . . _IOCCNbits 0 2 -> -> 0 `i `uc ]
+[; ;pin_manager.c: 101: IOCCNbits.IOCCN3 = 0;
 "101
-[e = . . _IOCCNbits 0 3 -> -> 1 `i `uc ]
+[e = . . _IOCCNbits 0 3 -> -> 0 `i `uc ]
 [; ;pin_manager.c: 103: IOCCPbits.IOCCP2 = 1;
 "103
 [e = . . _IOCCPbits 0 2 -> -> 1 `i `uc ]
@@ -10989,175 +10985,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 118: PPSLOCKbits.PPSLOCKED = 0x00;
 "118
 [e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 120: RXPPS = 0x0D;
+[; ;pin_manager.c: 120: SSPCLKPPS = 0x0E;
 "120
-[e = _RXPPS -> -> 13 `i `uc ]
+[e = _SSPCLKPPS -> -> 14 `i `uc ]
 [; ;pin_manager.c: 121: SSPDATPPS = 0x0C;
 "121
 [e = _SSPDATPPS -> -> 12 `i `uc ]
 [; ;pin_manager.c: 122: RB6PPS = 0x10;
 "122
 [e = _RB6PPS -> -> 16 `i `uc ]
-[; ;pin_manager.c: 123: RB7PPS = 0x12;
+[; ;pin_manager.c: 123: RB4PPS = 0x11;
 "123
-[e = _RB7PPS -> -> 18 `i `uc ]
-[; ;pin_manager.c: 124: RB4PPS = 0x11;
-"124
 [e = _RB4PPS -> -> 17 `i `uc ]
-[; ;pin_manager.c: 125: SSPCLKPPS = 0x0E;
+[; ;pin_manager.c: 125: PPSLOCK = 0x55;
 "125
-[e = _SSPCLKPPS -> -> 14 `i `uc ]
-[; ;pin_manager.c: 127: PPSLOCK = 0x55;
-"127
 [e = _PPSLOCK -> -> 85 `i `uc ]
-[; ;pin_manager.c: 128: PPSLOCK = 0xAA;
-"128
+[; ;pin_manager.c: 126: PPSLOCK = 0xAA;
+"126
 [e = _PPSLOCK -> -> 170 `i `uc ]
-[; ;pin_manager.c: 129: PPSLOCKbits.PPSLOCKED = 0x01;
-"129
+[; ;pin_manager.c: 127: PPSLOCKbits.PPSLOCKED = 0x01;
+"127
 [e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 131: GIE = state;
-"131
+[; ;pin_manager.c: 129: GIE = state;
+"129
 [e = _GIE -> _state `b ]
-[; ;pin_manager.c: 132: }
-"132
+[; ;pin_manager.c: 130: }
+"130
 [e :UE 1211 ]
 }
-"134
+"132
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"135
+"133
 {
-[; ;pin_manager.c: 134: void PIN_MANAGER_IOC(void)
-[; ;pin_manager.c: 135: {
+[; ;pin_manager.c: 132: void PIN_MANAGER_IOC(void)
+[; ;pin_manager.c: 133: {
 [e :U _PIN_MANAGER_IOC ]
 [f ]
-[; ;pin_manager.c: 137: if(IOCCFbits.IOCCF2 == 1)
-"137
+[; ;pin_manager.c: 135: if(IOCCFbits.IOCCF2 == 1)
+"135
 [e $ ! == -> . . _IOCCFbits 0 2 `i -> 1 `i 1213  ]
-[; ;pin_manager.c: 138: {
-"138
+[; ;pin_manager.c: 136: {
+"136
 {
-[; ;pin_manager.c: 139: IOCCF2_ISR();
-"139
+[; ;pin_manager.c: 137: IOCCF2_ISR();
+"137
 [e ( _IOCCF2_ISR ..  ]
-"140
+"138
 }
 [e :U 1213 ]
-[; ;pin_manager.c: 140: }
-[; ;pin_manager.c: 143: if(IOCCFbits.IOCCF3 == 1)
-"143
+[; ;pin_manager.c: 138: }
+[; ;pin_manager.c: 141: if(IOCCFbits.IOCCF3 == 1)
+"141
 [e $ ! == -> . . _IOCCFbits 0 3 `i -> 1 `i 1214  ]
-[; ;pin_manager.c: 144: {
-"144
+[; ;pin_manager.c: 142: {
+"142
 {
-[; ;pin_manager.c: 145: IOCCF3_ISR();
-"145
+[; ;pin_manager.c: 143: IOCCF3_ISR();
+"143
 [e ( _IOCCF3_ISR ..  ]
-"146
+"144
 }
 [e :U 1214 ]
-[; ;pin_manager.c: 146: }
-[; ;pin_manager.c: 149: }
-"149
+[; ;pin_manager.c: 144: }
+[; ;pin_manager.c: 147: }
+"147
 [e :UE 1212 ]
 }
-"154
+"152
 [v _IOCCF2_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 154: void IOCCF2_ISR(void) {
+[; ;pin_manager.c: 152: void IOCCF2_ISR(void) {
 [e :U _IOCCF2_ISR ]
 [f ]
-[; ;pin_manager.c: 159: if(IOCCF2_InterruptHandler)
-"159
+[; ;pin_manager.c: 157: if(IOCCF2_InterruptHandler)
+"157
 [e $ ! != _IOCCF2_InterruptHandler -> -> 0 `i `*F11965 1216  ]
-[; ;pin_manager.c: 160: {
-"160
+[; ;pin_manager.c: 158: {
+"158
 {
-[; ;pin_manager.c: 161: IOCCF2_InterruptHandler();
-"161
+[; ;pin_manager.c: 159: IOCCF2_InterruptHandler();
+"159
 [e ( *U _IOCCF2_InterruptHandler ..  ]
-"162
+"160
 }
 [e :U 1216 ]
-[; ;pin_manager.c: 162: }
-[; ;pin_manager.c: 163: IOCCFbits.IOCCF2 = 0;
-"163
+[; ;pin_manager.c: 160: }
+[; ;pin_manager.c: 161: IOCCFbits.IOCCF2 = 0;
+"161
 [e = . . _IOCCFbits 0 2 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 164: }
-"164
+[; ;pin_manager.c: 162: }
+"162
 [e :UE 1215 ]
 }
-"169
+"167
 [v _IOCCF2_SetInterruptHandler `(v ~T0 @X0 1 ef1`*v ]
 {
-[; ;pin_manager.c: 169: void IOCCF2_SetInterruptHandler(void* InterruptHandler){
+[; ;pin_manager.c: 167: void IOCCF2_SetInterruptHandler(void* InterruptHandler){
 [e :U _IOCCF2_SetInterruptHandler ]
 [v _InterruptHandler `*v ~T0 @X0 1 r1 ]
 [f ]
-[; ;pin_manager.c: 170: IOCCF2_InterruptHandler = InterruptHandler;
-"170
+[; ;pin_manager.c: 168: IOCCF2_InterruptHandler = InterruptHandler;
+"168
 [e = _IOCCF2_InterruptHandler -> _InterruptHandler `*F11965 ]
-[; ;pin_manager.c: 171: }
-"171
+[; ;pin_manager.c: 169: }
+"169
 [e :UE 1217 ]
 }
-"176
+"174
 [v _IOCCF2_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 176: void IOCCF2_DefaultInterruptHandler(void){
+[; ;pin_manager.c: 174: void IOCCF2_DefaultInterruptHandler(void){
 [e :U _IOCCF2_DefaultInterruptHandler ]
 [f ]
-[; ;pin_manager.c: 179: }
-"179
+[; ;pin_manager.c: 177: }
+"177
 [e :UE 1218 ]
 }
-"184
+"182
 [v _IOCCF3_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 184: void IOCCF3_ISR(void) {
+[; ;pin_manager.c: 182: void IOCCF3_ISR(void) {
 [e :U _IOCCF3_ISR ]
 [f ]
-[; ;pin_manager.c: 189: if(IOCCF3_InterruptHandler)
-"189
+[; ;pin_manager.c: 187: if(IOCCF3_InterruptHandler)
+"187
 [e $ ! != _IOCCF3_InterruptHandler -> -> 0 `i `*F11974 1220  ]
-[; ;pin_manager.c: 190: {
-"190
+[; ;pin_manager.c: 188: {
+"188
 {
-[; ;pin_manager.c: 191: IOCCF3_InterruptHandler();
-"191
+[; ;pin_manager.c: 189: IOCCF3_InterruptHandler();
+"189
 [e ( *U _IOCCF3_InterruptHandler ..  ]
-"192
+"190
 }
 [e :U 1220 ]
-[; ;pin_manager.c: 192: }
-[; ;pin_manager.c: 193: IOCCFbits.IOCCF3 = 0;
-"193
+[; ;pin_manager.c: 190: }
+[; ;pin_manager.c: 191: IOCCFbits.IOCCF3 = 0;
+"191
 [e = . . _IOCCFbits 0 3 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 194: }
-"194
+[; ;pin_manager.c: 192: }
+"192
 [e :UE 1219 ]
 }
-"199
+"197
 [v _IOCCF3_SetInterruptHandler `(v ~T0 @X0 1 ef1`*v ]
 {
-[; ;pin_manager.c: 199: void IOCCF3_SetInterruptHandler(void* InterruptHandler){
+[; ;pin_manager.c: 197: void IOCCF3_SetInterruptHandler(void* InterruptHandler){
 [e :U _IOCCF3_SetInterruptHandler ]
 [v _InterruptHandler `*v ~T0 @X0 1 r1 ]
 [f ]
-[; ;pin_manager.c: 200: IOCCF3_InterruptHandler = InterruptHandler;
-"200
+[; ;pin_manager.c: 198: IOCCF3_InterruptHandler = InterruptHandler;
+"198
 [e = _IOCCF3_InterruptHandler -> _InterruptHandler `*F11974 ]
-[; ;pin_manager.c: 201: }
-"201
+[; ;pin_manager.c: 199: }
+"199
 [e :UE 1221 ]
 }
-"206
+"204
 [v _IOCCF3_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 206: void IOCCF3_DefaultInterruptHandler(void){
+[; ;pin_manager.c: 204: void IOCCF3_DefaultInterruptHandler(void){
 [e :U _IOCCF3_DefaultInterruptHandler ]
 [f ]
-[; ;pin_manager.c: 209: }
-"209
+[; ;pin_manager.c: 207: }
+"207
 [e :UE 1222 ]
 }

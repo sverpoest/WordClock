@@ -14611,34 +14611,34 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 287 "mcc_generated_files/pin_manager.h"
+# 263 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 299
+# 275
 void PIN_MANAGER_IOC(void);
 
-# 312
+# 288
 void IOCCF2_ISR(void);
 
-# 335
+# 311
 void IOCCF2_SetInterruptHandler(void* InterruptHandler);
 
-# 359
+# 335
 extern void (*IOCCF2_InterruptHandler)(void);
 
-# 383
+# 359
 void IOCCF2_DefaultInterruptHandler(void);
 
-# 396
+# 372
 void IOCCF3_ISR(void);
 
-# 419
+# 395
 void IOCCF3_SetInterruptHandler(void* InterruptHandler);
 
-# 443
+# 419
 extern void (*IOCCF3_InterruptHandler)(void);
 
-# 467
+# 443
 void IOCCF3_DefaultInterruptHandler(void);
 
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
@@ -14663,7 +14663,7 @@ TRISC = 0xDE;
 
 # 73
 ANSELC = 0xC3;
-ANSELB = 0x80;
+ANSELB = 0xA0;
 ANSELA = 0x11;
 
 # 80
@@ -14681,8 +14681,8 @@ ODCONC = 0x00;
 IOCCFbits.IOCCF2 = 0;
 IOCCFbits.IOCCF3 = 0;
 
-IOCCNbits.IOCCN2 = 1;
-IOCCNbits.IOCCN3 = 1;
+IOCCNbits.IOCCN2 = 0;
+IOCCNbits.IOCCN3 = 0;
 
 IOCCPbits.IOCCP2 = 1;
 IOCCPbits.IOCCP3 = 1;
@@ -14701,12 +14701,10 @@ PPSLOCK = 0x55;
 PPSLOCK = 0xAA;
 PPSLOCKbits.PPSLOCKED = 0x00;
 
-RXPPS = 0x0D;
+SSPCLKPPS = 0x0E;
 SSPDATPPS = 0x0C;
 RB6PPS = 0x10;
-RB7PPS = 0x12;
 RB4PPS = 0x11;
-SSPCLKPPS = 0x0E;
 
 PPSLOCK = 0x55;
 PPSLOCK = 0xAA;
@@ -14732,7 +14730,7 @@ IOCCF3_ISR();
 
 }
 
-# 154
+# 152
 void IOCCF2_ISR(void) {
 
 
@@ -14745,18 +14743,18 @@ IOCCF2_InterruptHandler();
 IOCCFbits.IOCCF2 = 0;
 }
 
-# 169
+# 167
 void IOCCF2_SetInterruptHandler(void* InterruptHandler){
 IOCCF2_InterruptHandler = InterruptHandler;
 }
 
-# 176
+# 174
 void IOCCF2_DefaultInterruptHandler(void){
 
 
 }
 
-# 184
+# 182
 void IOCCF3_ISR(void) {
 
 
@@ -14769,12 +14767,12 @@ IOCCF3_InterruptHandler();
 IOCCFbits.IOCCF3 = 0;
 }
 
-# 199
+# 197
 void IOCCF3_SetInterruptHandler(void* InterruptHandler){
 IOCCF3_InterruptHandler = InterruptHandler;
 }
 
-# 206
+# 204
 void IOCCF3_DefaultInterruptHandler(void){
 
 

@@ -32,6 +32,7 @@ uint16_t DISPLAYBANK_col_l[20] =
                 0x001B, 0x000F, 0x000F, 0x07E0
             };
 
+uint8_t sec = 0;
 uint8_t min = 0;
 uint8_t hour = 0;
 
@@ -41,13 +42,7 @@ void Clock_Initialize(bool start)
     I2C_MESSAGE_STATUS status = I2C_MESSAGE_PENDING;
     
     if(start)
-    {
-        uint8_t     dataBuffer[2];
-
-        I2CRead(dataBuffer, 0x01, 2, MCP79410_ADDRESS);
-        min = dataBuffer[0];
-        hour = (dataBuffer[1] & 0x1F);
-    }
+        Clock_Read();
     
     writeBuffer[0] = 0x00;
     if(start)
@@ -95,30 +90,6 @@ void Clock_Tap(bool hours)
     Clock_Display(false);
 }
 
-void Clock_SetTime(uint8_t hourIn, uint8_t minsIn)
-{
-    if(hourIn > 12)
-        hourIn -= 12;
-    if(hourIn >= 10)
-        hourIn = hourIn - 10 + 0x10;
-    hour = hourIn;
-    
-    if(minsIn >= 50)
-        minsIn = minsIn - 50 + 0x50;
-    else if(minsIn >= 40)
-        minsIn = minsIn - 40 + 0x40;
-    else if(minsIn >= 30)
-        minsIn = minsIn - 30 + 0x30;
-    else if(minsIn >= 20)
-        minsIn = minsIn - 20 + 0x20;
-    else if(minsIn >= 10)
-        minsIn = minsIn - 10 + 0x10;
-    min = minsIn;
-    
-    Clock_Write();
-    Clock_Display(false);
-}
-
 void Clock_Write()
 {
     uint8_t     writeBuffer[4];
@@ -131,16 +102,20 @@ void Clock_Write()
     I2CWrite(writeBuffer, 4, MCP79410_ADDRESS);
 }
 
+void Clock_Read()
+{
+    uint8_t     dataBuffer[3];
+
+    I2CRead(dataBuffer, 0x00, 3, MCP79410_ADDRESS);
+    sec = (dataBuffer[0] & 0x7f);
+    min = dataBuffer[1];
+    hour = (dataBuffer[2] & 0x1F);
+}
+
 void Clock_Display(bool fetchTime)
 {
     if(fetchTime)
-    {
-        uint8_t     dataBuffer[2];
-
-        I2CRead(dataBuffer, 0x01, 2, MCP79410_ADDRESS);
-        min = dataBuffer[0];
-        hour = (dataBuffer[1] & 0x1F);
-    }
+        Clock_Read();
     
     int8_t*     row = DISPLAYBANK_row;
     uint16_t*   col = DISPLAYBANK_col;

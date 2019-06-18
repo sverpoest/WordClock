@@ -7,7 +7,7 @@
 #include "mcc_generated_files/mcc.h"
 
 void Acc_Initialize();
-void AccRead();
+void Acc_ProcessClickSrc(bool hours);
 
 #endif	/* _ACC_H */
 

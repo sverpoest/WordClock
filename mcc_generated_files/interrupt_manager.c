@@ -15,7 +15,7 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15.5
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.9
         Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -47,7 +47,6 @@
 
 #include "interrupt_manager.h"
 #include "mcc.h"
-#include "../bluetooth.h"
 
 void interrupt INTERRUPT_InterruptManager (void)
 {
@@ -55,14 +54,6 @@ void interrupt INTERRUPT_InterruptManager (void)
     if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
     {
         PIN_MANAGER_IOC();
-    }
-    else if(INTCONbits.PEIE == 1 && PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
-    {
-        EUSART_Transmit_ISR();
-    }
-    else if(INTCONbits.PEIE == 1 && PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
-    {
-        Bluetooth_Receive_ISR();
     }
     else if(INTCONbits.PEIE == 1 && PIE2bits.BCL1IE == 1 && PIR2bits.BCL1IF == 1)
     {

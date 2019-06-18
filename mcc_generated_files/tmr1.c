@@ -13,7 +13,7 @@
   @Description
     This source file provides APIs for TMR1.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15.5
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.9
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:

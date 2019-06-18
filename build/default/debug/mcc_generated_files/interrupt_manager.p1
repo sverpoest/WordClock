@@ -10,28 +10,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "372
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"299 mcc_generated_files/pin_manager.h
+"275 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
-"1769 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f1619.h
-[s S95 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S95 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
-"1768
-[u S94 `S95 1 ]
-[n S94 . . ]
-"1780
-[v _PIE1bits `VS94 ~T0 @X0 0 e@144 ]
-"584
-[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S35 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"583
-[u S34 `S35 1 ]
-[n S34 . . ]
-"595
-[v _PIR1bits `VS34 ~T0 @X0 0 e@16 ]
-"202 mcc_generated_files/eusart.h
-[v _EUSART_Transmit_ISR `(v ~T0 @X0 0 ef ]
-"14 mcc_generated_files/../bluetooth.h
-[v _Bluetooth_Receive_ISR `(v ~T0 @X0 0 ef ]
 "1831 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f1619.h
 [s S97 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S97 . CCP2IE TMR4IE TMR6IE BCL1IE . C1IE C2IE OSCFIE ]
@@ -50,7 +30,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR2bits `VS36 ~T0 @X0 0 e@17 ]
 "686 mcc_generated_files/i2c.h
 [v _I2C_BusCollisionISR `(v ~T0 @X0 0 ef ]
-"687
+"1769 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f1619.h
+[s S95 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S95 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1768
+[u S94 `S95 1 ]
+[n S94 . . ]
+"1780
+[v _PIE1bits `VS94 ~T0 @X0 0 e@144 ]
+"584
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"583
+[u S34 `S35 1 ]
+[n S34 . . ]
+"595
+[v _PIR1bits `VS34 ~T0 @X0 0 e@16 ]
+"687 mcc_generated_files/i2c.h
 [v _I2C_ISR `(v ~T0 @X0 0 ef ]
 "367 mcc_generated_files/tmr1.h
 [v _TMR1_ISR `(v ~T0 @X0 0 ef ]
@@ -10815,16 +10811,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;pin_manager.h: 287: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 299: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 312: void IOCCF2_ISR(void);
-[; ;pin_manager.h: 335: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 359: extern void (*IOCCF2_InterruptHandler)(void);
-[; ;pin_manager.h: 383: void IOCCF2_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 396: void IOCCF3_ISR(void);
-[; ;pin_manager.h: 419: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
-[; ;pin_manager.h: 443: extern void (*IOCCF3_InterruptHandler)(void);
-[; ;pin_manager.h: 467: void IOCCF3_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 263: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 275: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 288: void IOCCF2_ISR(void);
+[; ;pin_manager.h: 311: void IOCCF2_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 335: extern void (*IOCCF2_InterruptHandler)(void);
+[; ;pin_manager.h: 359: void IOCCF2_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 372: void IOCCF3_ISR(void);
+[; ;pin_manager.h: 395: void IOCCF3_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 419: extern void (*IOCCF3_InterruptHandler)(void);
+[; ;pin_manager.h: 443: void IOCCF3_DefaultInterruptHandler(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10855,43 +10851,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 181: void EUSART_Write_Direct(uint8_t txData);
-[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
 [; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;i2c.h: 83: typedef enum
 [; ;i2c.h: 84: {
@@ -10951,128 +10910,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void *InterruptHandler);
 [; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;bluetooth.h: 10: void Bluetooth_Initialize();
-[; ;bluetooth.h: 11: void Bluetooth_StateStep();
-[; ;bluetooth.h: 12: void Bluetooth_WriteCommand_MultiReceive(char s[], bool direct);
-[; ;bluetooth.h: 13: void Bluetooth_WriteCommand(char s[], bool direct);
-[; ;bluetooth.h: 14: void Bluetooth_Receive_ISR(void);
-[; ;bluetooth.h: 15: bool Bluetooth_IsAOK();
-[; ;bluetooth.h: 16: bool Bluetooth_IsRXString(char expected[], int8_t length);
-[; ;bluetooth.h: 17: void Bluetooth_HandleMessage(void);
-[; ;bluetooth.h: 18: void Bluetooth_GetTime(void);
-[; ;bluetooth.h: 19: void Bluetooth_FindPhone(void);
-[; ;bluetooth.h: 20: uint8_t Bluetooth_CharToInt(uint8_t character);
+[; ;mcc.h: 70: void SYSTEM_Initialize(void);
+[; ;mcc.h: 83: void OSCILLATOR_Initialize(void);
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
 [v F3 `(v ~T0 @X0 1 tf ]
-"52 mcc_generated_files/interrupt_manager.c
+"51 mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager `IF3 ~T0 @X0 1 e ]
-"53
+"52
 {
-[; ;interrupt_manager.c: 52: void interrupt INTERRUPT_InterruptManager (void)
-[; ;interrupt_manager.c: 53: {
+[; ;interrupt_manager.c: 51: void interrupt INTERRUPT_InterruptManager (void)
+[; ;interrupt_manager.c: 52: {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
-[; ;interrupt_manager.c: 55: if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
+[; ;interrupt_manager.c: 54: if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
+"54
+[e $ ! && == -> . . _INTCONbits 0 3 `i -> 1 `i == -> . . _INTCONbits 0 0 `i -> 1 `i 1213  ]
+[; ;interrupt_manager.c: 55: {
 "55
-[e $ ! && == -> . . _INTCONbits 0 3 `i -> 1 `i == -> . . _INTCONbits 0 0 `i -> 1 `i 1214  ]
-[; ;interrupt_manager.c: 56: {
+{
+[; ;interrupt_manager.c: 56: PIN_MANAGER_IOC();
 "56
-{
-[; ;interrupt_manager.c: 57: PIN_MANAGER_IOC();
-"57
 [e ( _PIN_MANAGER_IOC ..  ]
+"57
+}
+[; ;interrupt_manager.c: 57: }
+[e $U 1214  ]
 "58
-}
-[; ;interrupt_manager.c: 58: }
-[e $U 1215  ]
+[e :U 1213 ]
+[; ;interrupt_manager.c: 58: else if(INTCONbits.PEIE == 1 && PIE2bits.BCL1IE == 1 && PIR2bits.BCL1IF == 1)
+[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE2bits 0 3 `i -> 1 `i == -> . . _PIR2bits 0 3 `i -> 1 `i 1215  ]
+[; ;interrupt_manager.c: 59: {
 "59
-[e :U 1214 ]
-[; ;interrupt_manager.c: 59: else if(INTCONbits.PEIE == 1 && PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
-[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 1216  ]
-[; ;interrupt_manager.c: 60: {
+{
+[; ;interrupt_manager.c: 60: I2C_BusCollisionISR();
 "60
-{
-[; ;interrupt_manager.c: 61: EUSART_Transmit_ISR();
-"61
-[e ( _EUSART_Transmit_ISR ..  ]
-"62
-}
-[; ;interrupt_manager.c: 62: }
-[e $U 1217  ]
-"63
-[e :U 1216 ]
-[; ;interrupt_manager.c: 63: else if(INTCONbits.PEIE == 1 && PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
-[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 5 `i -> 1 `i == -> . . _PIR1bits 0 5 `i -> 1 `i 1218  ]
-[; ;interrupt_manager.c: 64: {
-"64
-{
-[; ;interrupt_manager.c: 65: Bluetooth_Receive_ISR();
-"65
-[e ( _Bluetooth_Receive_ISR ..  ]
-"66
-}
-[; ;interrupt_manager.c: 66: }
-[e $U 1219  ]
-"67
-[e :U 1218 ]
-[; ;interrupt_manager.c: 67: else if(INTCONbits.PEIE == 1 && PIE2bits.BCL1IE == 1 && PIR2bits.BCL1IF == 1)
-[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE2bits 0 3 `i -> 1 `i == -> . . _PIR2bits 0 3 `i -> 1 `i 1220  ]
-[; ;interrupt_manager.c: 68: {
-"68
-{
-[; ;interrupt_manager.c: 69: I2C_BusCollisionISR();
-"69
 [e ( _I2C_BusCollisionISR ..  ]
-"70
+"61
 }
-[; ;interrupt_manager.c: 70: }
-[e $U 1221  ]
-"71
-[e :U 1220 ]
-[; ;interrupt_manager.c: 71: else if(INTCONbits.PEIE == 1 && PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
-[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 1222  ]
-[; ;interrupt_manager.c: 72: {
-"72
-{
-[; ;interrupt_manager.c: 73: I2C_ISR();
-"73
-[e ( _I2C_ISR ..  ]
-"74
-}
-[; ;interrupt_manager.c: 74: }
-[e $U 1223  ]
-"75
-[e :U 1222 ]
-[; ;interrupt_manager.c: 75: else if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1224  ]
-[; ;interrupt_manager.c: 76: {
-"76
-{
-[; ;interrupt_manager.c: 77: TMR1_ISR();
-"77
-[e ( _TMR1_ISR ..  ]
-"78
-}
-[; ;interrupt_manager.c: 78: }
-[e $U 1225  ]
-"79
-[e :U 1224 ]
-[; ;interrupt_manager.c: 79: else
-[; ;interrupt_manager.c: 80: {
-"80
-{
-"82
-}
-[e :U 1225 ]
-[e :U 1223 ]
-[e :U 1221 ]
-[e :U 1219 ]
-[e :U 1217 ]
+[; ;interrupt_manager.c: 61: }
+[e $U 1216  ]
+"62
 [e :U 1215 ]
-[; ;interrupt_manager.c: 82: }
-[; ;interrupt_manager.c: 83: }
-"83
-[e :UE 1213 ]
+[; ;interrupt_manager.c: 62: else if(INTCONbits.PEIE == 1 && PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
+[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 1217  ]
+[; ;interrupt_manager.c: 63: {
+"63
+{
+[; ;interrupt_manager.c: 64: I2C_ISR();
+"64
+[e ( _I2C_ISR ..  ]
+"65
+}
+[; ;interrupt_manager.c: 65: }
+[e $U 1218  ]
+"66
+[e :U 1217 ]
+[; ;interrupt_manager.c: 66: else if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+[e $ ! && && == -> . . _INTCONbits 0 6 `i -> 1 `i == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1219  ]
+[; ;interrupt_manager.c: 67: {
+"67
+{
+[; ;interrupt_manager.c: 68: TMR1_ISR();
+"68
+[e ( _TMR1_ISR ..  ]
+"69
+}
+[; ;interrupt_manager.c: 69: }
+[e $U 1220  ]
+"70
+[e :U 1219 ]
+[; ;interrupt_manager.c: 70: else
+[; ;interrupt_manager.c: 71: {
+"71
+{
+"73
+}
+[e :U 1220 ]
+[e :U 1218 ]
+[e :U 1216 ]
+[e :U 1214 ]
+[; ;interrupt_manager.c: 73: }
+[; ;interrupt_manager.c: 74: }
+"74
+[e :UE 1212 ]
 }
